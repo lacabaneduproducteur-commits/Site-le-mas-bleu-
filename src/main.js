@@ -11,10 +11,17 @@ const TOPBAR_OFFSET = 70
 /* ---------- Galerie ---------- */
 /* Ajoutez une ligne ici pour chaque nouvelle photo uploadée dans public/img/galerie/ */
 const GALERIE_IMAGES = [
+  { src: '/img/galerie/coucher-soleil.jpg', alt: 'Producteur au coucher du soleil sur l\'étang de Leucate' },
+  { src: '/img/galerie/plateau-port.jpg', alt: 'Plateau de fruits de mer face au port de Leucate' },
+  { src: '/img/galerie/equipe.jpg', alt: 'L\'équipe du Mas Bleu avec un plateau de fruits de mer' },
+  { src: '/img/galerie/facade-soir.jpg', alt: 'Façade du Mas Bleu à la tombée du jour' },
+  { src: '/img/galerie/plateau-vin.jpg', alt: 'Plateau de fruits de mer et vin blanc face au port' },
+  { src: '/img/galerie/camionnette.jpg', alt: 'Ancienne camionnette Le Mas Bleu' },
+  { src: '/img/galerie/plateau-oursins.jpg', alt: 'Plateau d\'oursins et fruits de mer sur le ponton' },
+  { src: '/img/galerie/plateau-citronnier.jpg', alt: 'Plateau de fruits de mer sous le citronnier' },
   { src: '/img/mas-bleu.jpg', alt: 'Le Mas Bleu, terrasse au bord de l\'étang' },
   { src: '/img/cabane-du-producteur.jpg', alt: 'La Cabane du Producteur à Leucate' },
   { src: '/img/maison-coloniale.jpg', alt: 'Piscine de la Maison Coloniale à Torreilles' },
-  { src: '/img/hero.jpg', alt: 'Plateau de fruits de mer face à l\'étang de Leucate' },
 ]
 
 const galerieGrid = document.getElementById('galerie-grid')
