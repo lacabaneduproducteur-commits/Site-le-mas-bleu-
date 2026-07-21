@@ -4,12 +4,13 @@
   --navy-deep: #0a2740;
   --blue: #3e86a0;
   --yellow: #f2b705;
+  --gold: #a97b0a;
   --text: #1b2b33;
   --text-soft: rgba(27, 43, 51, 0.68);
   --glass-bg: rgba(255, 255, 255, 0.5);
   --glass-border: rgba(255, 255, 255, 0.65);
 
-  --font-display: 'Fraunces', Georgia, serif;
+  --font-display: 'EB Garamond', Garamond, Georgia, serif;
   --font-body: 'Inter', system-ui, sans-serif;
 
   color-scheme: light;
@@ -57,7 +58,7 @@ h4 {
   font-family: var(--font-display);
   font-weight: 500;
   margin: 0;
-  color: var(--navy);
+  color: var(--gold);
   letter-spacing: -0.01em;
 }
 
@@ -137,6 +138,23 @@ h4 {
   text-transform: uppercase;
   color: var(--blue);
   margin: 0 0 16px;
+}
+
+.eyebrow--icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.deco-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .section h2 {
@@ -778,7 +796,7 @@ h4 {
 
 .footer h3,
 .footer h4 {
-  color: #fff;
+  color: var(--yellow);
 }
 
 .footer h3 {
