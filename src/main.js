@@ -8,6 +8,73 @@ gsap.registerPlugin(ScrollTrigger)
 const isTouch = window.matchMedia('(hover: none)').matches
 const TOPBAR_OFFSET = 70
 
+/* ---------- Galerie ---------- */
+/* Ajoutez une ligne ici pour chaque nouvelle photo uploadée dans public/img/galerie/ */
+const GALERIE_IMAGES = [
+  { src: '/img/mas-bleu.jpg', alt: 'Le Mas Bleu, terrasse au bord de l\'étang' },
+  { src: '/img/cabane-du-producteur.jpg', alt: 'La Cabane du Producteur à Leucate' },
+  { src: '/img/maison-coloniale.jpg', alt: 'Piscine de la Maison Coloniale à Torreilles' },
+  { src: '/img/hero.jpg', alt: 'Plateau de fruits de mer face à l\'étang de Leucate' },
+]
+
+const galerieGrid = document.getElementById('galerie-grid')
+if (galerieGrid) {
+  galerieGrid.innerHTML = GALERIE_IMAGES.map(
+    (item, i) => `
+    <figure class="galerie__item" data-index="${i}">
+      <img src="${item.src}" alt="${item.alt}" loading="lazy" />
+    </figure>
+  `
+  ).join('')
+}
+
+/* ---------- Lightbox ---------- */
+const lightbox = document.getElementById('lightbox')
+const lightboxImage = document.getElementById('lightbox-image')
+let lightboxIndex = 0
+
+function openLightbox(index) {
+  lightboxIndex = index
+  const item = GALERIE_IMAGES[lightboxIndex]
+  lightboxImage.src = item.src
+  lightboxImage.alt = item.alt
+  lightbox.classList.add('is-open')
+  document.body.style.overflow = 'hidden'
+}
+
+function closeLightbox() {
+  lightbox.classList.remove('is-open')
+  document.body.style.overflow = ''
+}
+
+function showLightbox(delta) {
+  lightboxIndex = (lightboxIndex + delta + GALERIE_IMAGES.length) % GALERIE_IMAGES.length
+  const item = GALERIE_IMAGES[lightboxIndex]
+  lightboxImage.src = item.src
+  lightboxImage.alt = item.alt
+}
+
+if (lightbox) {
+  document.querySelectorAll('.galerie__item').forEach((el) => {
+    el.addEventListener('click', () => openLightbox(parseInt(el.dataset.index, 10)))
+  })
+
+  document.getElementById('lightbox-close').addEventListener('click', closeLightbox)
+  document.getElementById('lightbox-prev').addEventListener('click', () => showLightbox(-1))
+  document.getElementById('lightbox-next').addEventListener('click', () => showLightbox(1))
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox()
+  })
+
+  window.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('is-open')) return
+    if (e.key === 'Escape') closeLightbox()
+    if (e.key === 'ArrowLeft') showLightbox(-1)
+    if (e.key === 'ArrowRight') showLightbox(1)
+  })
+}
+
 document.getElementById('year').textContent = new Date().getFullYear()
 
 /* ---------- Page load fade-in ---------- */
@@ -73,6 +140,23 @@ gsap.to('.hero [data-reveal]', {
   stagger: 0.12,
   delay: 0.2,
 })
+
+/* ---------- Galerie reveal ---------- */
+if (galerieGrid) {
+  gsap.to('.galerie__item', {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    duration: 0.9,
+    ease: 'power3.out',
+    stagger: 0.08,
+    scrollTrigger: {
+      trigger: '.galerie',
+      start: 'top 75%',
+      once: true,
+    },
+  })
+}
 
 /* ---------- Footer reveal ---------- */
 gsap.to('[data-reveal-footer]', {
@@ -171,7 +255,7 @@ if (!isTouch) {
     dot.style.transform = `translate3d(${mouse.x}px, ${mouse.y}px, 0)`
   })
 
-  document.querySelectorAll('a, button, .card').forEach((el) => {
+  document.querySelectorAll('a, button, .card, .galerie__item').forEach((el) => {
     el.addEventListener('mouseenter', () => cursor.classList.add('is-hover'))
     el.addEventListener('mouseleave', () => cursor.classList.remove('is-hover'))
   })

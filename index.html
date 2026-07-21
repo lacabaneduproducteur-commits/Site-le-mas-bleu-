@@ -21,6 +21,7 @@
       </a>
       <nav class="topbar__nav">
         <a href="#enseignes">Nos adresses</a>
+        <a href="#galerie">Galerie</a>
         <a href="#avis">Avis</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -30,7 +31,10 @@
       <!-- HERO -->
       <section id="hero" class="hero">
         <div class="hero__bg">
-          <div class="hero__bg-image" style="background-image:url('/img/hero.jpg')"></div>
+          <video class="hero__bg-video" autoplay muted loop playsinline poster="/img/hero.jpg">
+            <source src="/video/hero.webm" type="video/webm" />
+            <source src="/video/hero.mp4" type="video/mp4" />
+          </video>
         </div>
         <div class="hero__overlay"></div>
         <div class="hero__vignette"></div>
@@ -146,6 +150,23 @@
           </div>
         </div>
       </section>
+
+      <!-- GALERIE -->
+      <section id="galerie" class="section galerie">
+        <div class="section__inner">
+          <p class="eyebrow" data-reveal>En images</p>
+          <h2 data-reveal>La vie sur l'étang</h2>
+          <div class="galerie__grid" id="galerie-grid"></div>
+        </div>
+      </section>
+
+      <!-- LIGHTBOX -->
+      <div class="lightbox" id="lightbox">
+        <button class="lightbox__close" id="lightbox-close" aria-label="Fermer">&times;</button>
+        <button class="lightbox__nav lightbox__nav--prev" id="lightbox-prev" aria-label="Précédent">&#8249;</button>
+        <img class="lightbox__image" id="lightbox-image" src="" alt="" />
+        <button class="lightbox__nav lightbox__nav--next" id="lightbox-next" aria-label="Suivant">&#8250;</button>
+      </div>
 
       <!-- AVIS -->
       <section id="avis" class="section avis">
