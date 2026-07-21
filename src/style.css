@@ -464,11 +464,31 @@ h4 {
   margin: 0 0 18px;
 }
 
-.card__meta,
-.card__address {
+.card__meta {
   font-size: 14px;
   color: var(--text-soft);
   margin: 0 0 4px;
+}
+
+.card__address {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--text-soft);
+  margin: 0 0 4px;
+  transition: color 0.25s ease;
+}
+
+.card__address svg {
+  width: 15px;
+  height: 15px;
+  fill: var(--blue);
+  flex-shrink: 0;
+}
+
+.card__address:hover {
+  color: var(--navy);
 }
 
 .card__links {
