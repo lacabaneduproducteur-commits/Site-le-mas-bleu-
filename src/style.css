@@ -283,7 +283,6 @@ h4 {
 .hero__content h1 {
   font-size: clamp(42px, 6.4vw, 78px);
   line-height: 0.98;
-  color: var(--navy);
   margin: 18px 0 22px;
 }
 

@@ -21,7 +21,6 @@ const GALERIE_IMAGES = [
   { src: '/img/galerie/plateau-citronnier.jpg', alt: 'Plateau de fruits de mer sous le citronnier' },
   { src: '/img/mas-bleu.jpg', alt: 'Le Mas Bleu, terrasse au bord de l\'étang' },
   { src: '/img/cabane-du-producteur.jpg', alt: 'La Cabane du Producteur à Leucate' },
-  { src: '/img/maison-coloniale.jpg', alt: 'Piscine de la Maison Coloniale à Torreilles' },
 ]
 
 const galerieGrid = document.getElementById('galerie-grid')
