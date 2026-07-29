@@ -103,32 +103,40 @@ if (!isTouch) {
   gsap.ticker.lagSmoothing(0)
 }
 
-/* ---------- Dropdown menu ---------- */
-const dropdown = document.getElementById('adresses-dropdown')
-if (dropdown) {
-  const trigger = document.getElementById('adresses-trigger')
+/* ---------- Menu panel (hamburger) ---------- */
+const menuTrigger = document.getElementById('menu-trigger')
+const menuPanel = document.getElementById('menu-panel')
+const menuOverlay = document.getElementById('menu-overlay')
 
-  const closeDropdown = () => {
-    dropdown.classList.remove('is-open')
-    trigger.setAttribute('aria-expanded', 'false')
+if (menuTrigger && menuPanel && menuOverlay) {
+  const closeMenu = () => {
+    menuTrigger.classList.remove('is-open')
+    menuPanel.classList.remove('is-open')
+    menuOverlay.classList.remove('is-open')
+    menuTrigger.setAttribute('aria-expanded', 'false')
+    document.body.style.overflow = ''
   }
 
-  trigger.addEventListener('click', (e) => {
-    e.stopPropagation()
-    const isOpen = dropdown.classList.toggle('is-open')
-    trigger.setAttribute('aria-expanded', String(isOpen))
+  const openMenu = () => {
+    menuTrigger.classList.add('is-open')
+    menuPanel.classList.add('is-open')
+    menuOverlay.classList.add('is-open')
+    menuTrigger.setAttribute('aria-expanded', 'true')
+    document.body.style.overflow = 'hidden'
+  }
+
+  menuTrigger.addEventListener('click', () => {
+    menuTrigger.classList.contains('is-open') ? closeMenu() : openMenu()
   })
 
-  document.addEventListener('click', (e) => {
-    if (!dropdown.contains(e.target)) closeDropdown()
-  })
+  menuOverlay.addEventListener('click', closeMenu)
 
   window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeDropdown()
+    if (e.key === 'Escape') closeMenu()
   })
 
-  dropdown.querySelectorAll('.dropdown__menu a').forEach((link) => {
-    link.addEventListener('click', closeDropdown)
+  menuPanel.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', closeMenu)
   })
 }
 
