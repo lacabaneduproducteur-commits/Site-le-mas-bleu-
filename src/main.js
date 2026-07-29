@@ -138,6 +138,14 @@ if (menuTrigger && menuPanel && menuOverlay) {
   menuPanel.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', closeMenu)
   })
+
+  const heroMenuCta = document.getElementById('hero-menu-cta')
+  if (heroMenuCta) {
+    heroMenuCta.addEventListener('click', (e) => {
+      e.preventDefault()
+      openMenu()
+    })
+  }
 }
 
 /* ---------- Anchor links (offset for fixed topbar) ---------- */
@@ -146,6 +154,7 @@ const onHomepage = window.location.pathname === '/' || window.location.pathname.
 
 document.querySelectorAll('a[href^="#"], a[href^="/#"]').forEach((link) => {
   const href = link.getAttribute('href')
+  if (href === '#') return // not a real anchor (e.g. JS-only trigger)
   if (href.startsWith('/#') && !onHomepage) return // let the browser navigate to the homepage normally
 
   link.addEventListener('click', (e) => {
