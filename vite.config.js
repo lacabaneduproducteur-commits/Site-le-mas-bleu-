@@ -8,6 +8,7 @@ export default defineConfig({
         main: resolve(__dirname, 'index.html'),
         masBleu: resolve(__dirname, 'mas-bleu/index.html'),
         cabaneDuProducteur: resolve(__dirname, 'cabane-du-producteur/index.html'),
+        maisonColoniale: resolve(__dirname, 'maison-coloniale/index.html'),
       },
     },
   },
