@@ -355,6 +355,29 @@ h4 {
   pointer-events: none;
 }
 
+.hero__bg-image {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: right center;
+  animation: heroKenBurns 24s ease-in-out infinite alternate;
+}
+
+@keyframes heroKenBurns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__bg-image {
+    animation: none;
+  }
+}
+
 .hero__overlay {
   position: absolute;
   inset: 0;
@@ -432,6 +455,52 @@ h4 {
     top: 100%;
     opacity: 0;
   }
+}
+
+/* ---------- Contact page ---------- */
+.contact-card {
+  max-width: 560px;
+  padding: 12px;
+  display: grid;
+  gap: 4px;
+}
+
+.contact-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 16px 18px;
+  border-radius: 12px;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--navy);
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.contact-row:hover {
+  background: rgba(14, 54, 84, 0.06);
+  color: var(--blue);
+}
+
+.contact-row__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: rgba(201, 149, 0, 0.12);
+}
+
+.contact-row__icon svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 /* ---------- Buttons ---------- */

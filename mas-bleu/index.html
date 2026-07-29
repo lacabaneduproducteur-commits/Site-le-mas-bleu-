@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Le Mas Bleu — Bar à huîtres, Grau de Leucate</title>
+    <meta name="description" content="Le Mas Bleu, bar à huîtres au Grau de Leucate depuis 2005. Histoire, adresse et contact." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="grain"></div>
+    <div id="cursor"></div>
+    <div id="cursor-dot"></div>
+
+    <header class="topbar">
+      <span class="topbar__spacer" aria-hidden="true"></span>
+      <a href="/" class="topbar__brand">
+        <img src="/img/logo-mas-bleu.png" alt="Le Mas Bleu — Huîtres, Estramar Leucate" />
+      </a>
+      <button class="menu-trigger" id="menu-trigger" aria-expanded="false" aria-controls="menu-panel" aria-label="Ouvrir le menu">
+        <span class="menu-icon">
+          <span class="menu-icon__line menu-icon__line--top"></span>
+          <span class="menu-icon__line menu-icon__line--mid"></span>
+          <span class="menu-icon__line menu-icon__line--bot"></span>
+        </span>
+      </button>
+    </header>
+
+    <div class="menu-panel" id="menu-panel">
+      <nav class="menu-panel__nav">
+        <div class="menu-panel__group">
+          <p class="menu-panel__label">Nos adresses</p>
+          <a href="/mas-bleu/">Le Mas Bleu</a>
+          <a href="/#cabane-du-producteur">La Cabane du Producteur</a>
+          <a href="/#maison-coloniale">La Maison Coloniale</a>
+          <a href="/#verger">Le Verger de Torreilles</a>
+        </div>
+        <div class="menu-panel__group">
+          <p class="menu-panel__label">Le site</p>
+          <a href="/#galerie">Galerie</a>
+          <a href="/#avis">Avis</a>
+          <a href="/#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+    <div class="menu-overlay" id="menu-overlay"></div>
+
+    <main>
+      <!-- HERO -->
+      <section id="hero" class="hero">
+        <div class="hero__bg">
+          <div class="hero__bg-image" style="background-image:url('/img/mas-bleu.jpg')"></div>
+        </div>
+        <div class="hero__overlay"></div>
+        <div class="hero__vignette"></div>
+        <div class="hero__content">
+          <p class="eyebrow eyebrow--icon" data-reveal>
+            <svg class="deco-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 3C7 6 4 11 4 15c0 3 3.5 5 8 5s8-2 8-5c0-4-3-9-8-12z" />
+              <path d="M8 12c1.5 1 2.5 1 4 0" />
+              <path d="M16 12c-1.5 1-2.5 1-4 0" />
+            </svg>
+            Depuis 2005 — Grau de Leucate
+          </p>
+          <h1 data-reveal>Le Mas Bleu</h1>
+          <p class="hero__lede" data-reveal>Le bar à huîtres qui a vu naître notre aventure familiale, les pieds dans l'eau de l'étang de Leucate.</p>
+          <a href="#contact-info" class="btn btn--primary" data-reveal>Nous contacter</a>
+        </div>
+        <div class="hero__scroll-hint"><span></span></div>
+      </section>
+
+      <!-- HISTOIRE -->
+      <section class="section histoire">
+        <div class="section__inner">
+          <p class="eyebrow" data-reveal>Notre histoire</p>
+          <h2 data-reveal>Né en 2005, au bord de l'étang</h2>
+          <div class="histoire__text" data-reveal>
+            <p>Le Mas Bleu voit le jour en 2005, au Grau de Leucate, rive droite. C'est ici que tout a commencé : une famille de producteurs d'huîtres qui décide d'ouvrir sa propre table, face à l'étang où elle élève ses huîtres depuis plusieurs générations.</p>
+            <p>Depuis, Le Mas Bleu est resté fidèle à son idée de départ : un bar à huîtres simple et généreux, où l'on vient déguster des plateaux de fruits de mer fraîchement sortis de l'eau, sur une terrasse les pieds presque dans l'étang.</p>
+            <p>Vingt ans plus tard, l'esprit reste le même — celui d'une famille qui partage sa passion pour son terroir, une huître à la fois.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact-info" class="section contact-page">
+        <div class="section__inner">
+          <p class="eyebrow" data-reveal>Nous trouver</p>
+          <h2 data-reveal>Venez nous rendre visite</h2>
+
+          <div class="contact-card glass" data-reveal>
+            <a class="contact-row" href="https://www.google.com/maps/search/?api=1&query=Le+Mas+Bleu+37+Grau+de+Leucate+rive+droite+11370+Leucate" target="_blank" rel="noopener">
+              <span class="contact-row__icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C7.6 2 4 5.6 4 10c0 5.4 7 11.5 7.3 11.7.2.2.5.3.7.3s.5-.1.7-.3C13 21.5 20 15.4 20 10c0-4.4-3.6-8-8-8zm0 11c-1.7 0-3-1.3-3-3s1.3-3 3-3 3 1.3 3 3-1.3 3-3 3z"/></svg>
+              </span>
+              <span>37 Grau de Leucate, rive droite<br />11370 Leucate</span>
+            </a>
+
+            <a class="contact-row" href="tel:0468409233">
+              <span class="contact-row__icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </span>
+              <span>04 68 40 92 33</span>
+            </a>
+
+            <a class="contact-row" href="mailto:masbleuleucate@orange.fr">
+              <span class="contact-row__icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+              </span>
+              <span>masbleuleucate@orange.fr</span>
+            </a>
+
+            <a class="contact-row" href="https://www.instagram.com/le_mas_bleu" target="_blank" rel="noopener">
+              <span class="contact-row__icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              </span>
+              <span>@le_mas_bleu</span>
+            </a>
+
+            <a class="contact-row" href="https://www.facebook.com/lemasbleu" target="_blank" rel="noopener">
+              <span class="contact-row__icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              </span>
+              <span>Le Mas Bleu</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" id="footer">
+      <div class="footer__inner">
+        <div class="footer__brand" data-reveal-footer>
+          <h3>Le Mas Bleu</h3>
+          <p>Producteurs d'huîtres depuis plusieurs générations, étang de Leucate.</p>
+        </div>
+        <div class="footer__col" data-reveal-footer>
+          <h4>Le Mas Bleu</h4>
+          <a href="https://www.google.com/maps/search/?api=1&query=Le+Mas+Bleu+37+Grau+de+Leucate+rive+droite+11370+Leucate" target="_blank" rel="noopener">37 Grau de Leucate, rive droite, 11370 Leucate</a>
+          <a href="tel:0468409233">04 68 40 92 33</a>
+          <a href="mailto:masbleuleucate@orange.fr">masbleuleucate@orange.fr</a>
+        </div>
+        <div class="footer__col" data-reveal-footer>
+          <h4>La Cabane du Producteur</h4>
+          <a href="https://www.google.com/maps/search/?api=1&query=La+Cabane+du+Producteur+Grau+de+Leucate+11370+Leucate" target="_blank" rel="noopener">Grau de Leucate, 11370 Leucate</a>
+          <a href="tel:0950133207">09 50 13 32 07</a>
+        </div>
+        <div class="footer__col" data-reveal-footer>
+          <h4>La Maison Coloniale</h4>
+          <a href="https://www.google.com/maps/search/?api=1&query=La+Maison+Coloniale+10+Rue+des+Acacias+66440+Torreilles" target="_blank" rel="noopener">10 Rue des Acacias, 66440 Torreilles</a>
+          <a href="https://www.booking.com/Share-NDgEWJE" target="_blank" rel="noopener">Réserver</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© <span id="year"></span> Le Mas Bleu — Tous droits réservés</span>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

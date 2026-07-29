@@ -141,9 +141,16 @@ if (menuTrigger && menuPanel && menuOverlay) {
 }
 
 /* ---------- Anchor links (offset for fixed topbar) ---------- */
-document.querySelectorAll('a[href^="#"]').forEach((link) => {
+/* Supports "#id" (same page) and "/#id" (links back to the homepage from a subpage) */
+const onHomepage = window.location.pathname === '/' || window.location.pathname.endsWith('/index.html')
+
+document.querySelectorAll('a[href^="#"], a[href^="/#"]').forEach((link) => {
+  const href = link.getAttribute('href')
+  if (href.startsWith('/#') && !onHomepage) return // let the browser navigate to the homepage normally
+
   link.addEventListener('click', (e) => {
-    const target = document.querySelector(link.getAttribute('href'))
+    const hash = href.startsWith('/#') ? href.slice(1) : href
+    const target = document.querySelector(hash)
     if (!target) return
     e.preventDefault()
     const top = target.getBoundingClientRect().top + window.scrollY - TOPBAR_OFFSET
