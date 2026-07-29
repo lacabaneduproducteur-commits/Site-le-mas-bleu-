@@ -17,7 +17,18 @@
 
     <header class="topbar">
       <nav class="topbar__nav topbar__nav--left">
-        <a href="#enseignes">Nos adresses</a>
+        <div class="dropdown" id="adresses-dropdown">
+          <button class="dropdown__trigger" id="adresses-trigger" aria-expanded="false" aria-haspopup="true">
+            Nos adresses
+            <svg class="dropdown__chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+          </button>
+          <div class="dropdown__menu" id="adresses-menu">
+            <a href="#mas-bleu">Le Mas Bleu</a>
+            <a href="#cabane-du-producteur">La Cabane du Producteur</a>
+            <a href="#maison-coloniale">La Maison Coloniale</a>
+            <a href="#verger">Le Verger de Torreilles</a>
+          </div>
+        </div>
         <a href="#galerie">Galerie</a>
       </nav>
       <a href="#hero" class="topbar__brand">
@@ -105,7 +116,7 @@
           <h2 data-reveal>Trois lieux, une même famille</h2>
 
           <div class="cards">
-            <article class="card glass" data-reveal>
+            <article class="card glass" id="mas-bleu" data-reveal>
               <img class="card__photo" src="/img/mas-bleu.jpg" alt="Façade du Mas Bleu à Leucate" loading="lazy" />
               <h3>Le Mas Bleu</h3>
               <p class="card__tagline">Le bar à huîtres au bord de l'étang</p>
@@ -122,7 +133,7 @@
               </div>
             </article>
 
-            <article class="card glass" data-reveal>
+            <article class="card glass" id="cabane-du-producteur" data-reveal>
               <img class="card__photo" src="/img/cabane-du-producteur.jpg" alt="Façade de La Cabane du Producteur à Leucate" loading="lazy" />
               <h3>La Cabane du Producteur</h3>
               <p class="card__tagline">Nos huîtres, fraîches du producteur à l'assiette</p>
@@ -138,7 +149,7 @@
               </div>
             </article>
 
-            <article class="card glass" data-reveal>
+            <article class="card glass" id="maison-coloniale" data-reveal>
               <img class="card__photo" src="/img/maison-coloniale.jpg" alt="Piscine de la Maison Coloniale à Torreilles" loading="lazy" />
               <h3>La Maison Coloniale</h3>
               <p class="card__tagline">Chambres d'hôtes au cœur du verger de citronniers</p>

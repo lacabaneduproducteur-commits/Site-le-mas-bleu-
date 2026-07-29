@@ -103,6 +103,35 @@ if (!isTouch) {
   gsap.ticker.lagSmoothing(0)
 }
 
+/* ---------- Dropdown menu ---------- */
+const dropdown = document.getElementById('adresses-dropdown')
+if (dropdown) {
+  const trigger = document.getElementById('adresses-trigger')
+
+  const closeDropdown = () => {
+    dropdown.classList.remove('is-open')
+    trigger.setAttribute('aria-expanded', 'false')
+  }
+
+  trigger.addEventListener('click', (e) => {
+    e.stopPropagation()
+    const isOpen = dropdown.classList.toggle('is-open')
+    trigger.setAttribute('aria-expanded', String(isOpen))
+  })
+
+  document.addEventListener('click', (e) => {
+    if (!dropdown.contains(e.target)) closeDropdown()
+  })
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeDropdown()
+  })
+
+  dropdown.querySelectorAll('.dropdown__menu a').forEach((link) => {
+    link.addEventListener('click', closeDropdown)
+  })
+}
+
 /* ---------- Anchor links (offset for fixed topbar) ---------- */
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
   link.addEventListener('click', (e) => {
