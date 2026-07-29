@@ -6,7 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 const isTouch = window.matchMedia('(hover: none)').matches
-const TOPBAR_OFFSET = 96
+const TOPBAR_OFFSET = 112
 
 /* ---------- Galerie ---------- */
 /* Ajoutez une ligne ici pour chaque nouvelle photo uploadée dans public/img/galerie/ */

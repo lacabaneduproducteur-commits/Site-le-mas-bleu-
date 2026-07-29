@@ -189,8 +189,9 @@ h4 {
 }
 
 .topbar__brand img {
-  height: 72px;
+  height: 88px;
   width: auto;
+  max-width: 68vw;
   display: block;
 }
 
@@ -317,7 +318,8 @@ h4 {
 
 @media (max-width: 640px) {
   .topbar__brand img {
-    height: 56px;
+    height: 60px;
+    max-width: 78vw;
   }
   .menu-panel {
     width: 100%;
@@ -446,6 +448,11 @@ h4 {
   font-size: clamp(42px, 6.4vw, 78px);
   line-height: 0.98;
   margin: 18px 0 22px;
+}
+
+.hero--home .hero__content h1 {
+  font-size: clamp(30px, 3.6vw, 48px);
+  line-height: 1.1;
 }
 
 .hero__lede {
