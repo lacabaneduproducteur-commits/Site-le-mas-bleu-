@@ -378,6 +378,44 @@ h4 {
   }
 }
 
+/* ---------- Hero split variant (photo framed next to the text) ---------- */
+.hero--split {
+  height: auto;
+  min-height: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: clamp(32px, 6vw, 80px);
+  padding: 150px clamp(24px, 6vw, 96px) 100px;
+}
+
+.hero--split .hero__content {
+  max-width: 520px;
+  padding: 0;
+}
+
+.hero__frame {
+  padding: 12px;
+  background: #fffdf8;
+  border: 1px solid rgba(14, 54, 84, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 24px 60px rgba(14, 54, 84, 0.16);
+}
+
+.hero__framed-photo {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .hero--split {
+    grid-template-columns: 1fr;
+    padding-top: 130px;
+  }
+}
+
 .hero__overlay {
   position: absolute;
   inset: 0;
