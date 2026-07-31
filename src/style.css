@@ -397,6 +397,7 @@ h4 {
 }
 
 .hero__frame {
+  position: relative;
   padding: 12px;
   background: #fffdf8;
   border: 1px solid rgba(14, 54, 84, 0.1);
@@ -546,6 +547,169 @@ h4 {
   stroke-width: 1.6;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+
+/* ---------- Hero logo badge (enseignes) ---------- */
+.hero__logo-badge {
+  position: absolute;
+  bottom: -20px;
+  left: 28px;
+  z-index: 3;
+  background: #fffdf8;
+  border-radius: 14px;
+  padding: 10px 16px;
+  box-shadow: 0 14px 30px rgba(14, 54, 84, 0.2);
+  border: 1px solid rgba(14, 54, 84, 0.08);
+}
+
+.hero__logo-badge img {
+  height: 44px;
+  width: auto;
+  max-width: 140px;
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .hero__logo-badge {
+    left: 16px;
+    bottom: -16px;
+    padding: 8px 12px;
+  }
+  .hero__logo-badge img {
+    height: 34px;
+  }
+}
+
+/* ---------- Chambres (Maison Coloniale) ---------- */
+#rooms-container {
+  display: grid;
+  gap: 64px;
+}
+
+.room__header {
+  margin-bottom: 22px;
+}
+
+.room__header h3 {
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+
+.room__header p {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-style: italic;
+  color: var(--blue);
+}
+
+.room__carousel-wrap {
+  position: relative;
+}
+
+.room__track {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x proximity;
+  padding: 4px 4px 16px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.room__track::-webkit-scrollbar {
+  display: none;
+}
+
+.room__item {
+  position: relative;
+  flex: 0 0 auto;
+  width: min(80vw, 460px);
+  height: 340px;
+  overflow: hidden;
+  border-radius: 16px;
+  cursor: pointer;
+  scroll-snap-align: start;
+  padding: 10px;
+  background: #fffdf8;
+  border: 1px solid rgba(14, 54, 84, 0.1);
+  box-shadow: 0 16px 34px rgba(14, 54, 84, 0.14);
+}
+
+.room__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.room__item:hover img {
+  transform: scale(1.06);
+}
+
+@media (max-width: 900px) {
+  .room__nav {
+    display: none;
+  }
+}
+
+/* ---------- Services (Maison Coloniale) ---------- */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px 24px;
+}
+
+@media (max-width: 1000px) {
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.service {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  border-radius: 14px;
+  background: #fffdf8;
+  border: 1px solid rgba(14, 54, 84, 0.08);
+  box-shadow: 0 10px 24px rgba(14, 54, 84, 0.08);
+}
+
+.service__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: rgba(201, 149, 0, 0.12);
+}
+
+.service__icon svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.service__label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--navy);
+  line-height: 1.3;
 }
 
 /* ---------- Buttons ---------- */
@@ -884,6 +1048,34 @@ h4 {
   }
 }
 
+/* ---------- Carousel dots (partagé galerie / avis / chambres) ---------- */
+.carousel__dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.carousel__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(14, 54, 84, 0.18);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.carousel__dot:hover {
+  background: rgba(14, 54, 84, 0.35);
+}
+
+.carousel__dot.is-active {
+  background: var(--gold);
+  transform: scale(1.3);
+}
+
 .galerie__item img {
   width: 100%;
   height: 100%;
@@ -1016,31 +1208,73 @@ h4 {
   fill: rgba(242, 183, 5, 0.35);
 }
 
-.avis__grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+.avis__viewport {
+  position: relative;
 }
 
-@media (max-width: 800px) {
-  .avis__grid {
-    grid-template-columns: 1fr;
-  }
+.avis__grid {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x proximity;
+  padding: 4px 4px 20px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.avis__grid::-webkit-scrollbar {
+  display: none;
 }
 
 .avis__card {
   position: relative;
+  flex: 0 0 auto;
+  width: min(82vw, 420px);
   padding: 34px;
   font-size: 17px;
   line-height: 1.6;
   color: var(--text);
   overflow: hidden;
+  scroll-snap-align: start;
 }
 
 .avis__card p {
   margin: 0;
   position: relative;
   z-index: 1;
+}
+
+.avis__card-stars {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.avis__card-stars svg {
+  width: 15px;
+  height: 15px;
+  fill: var(--yellow);
+}
+
+.avis__card-stars svg.star--half {
+  fill: rgba(242, 183, 5, 0.35);
+}
+
+.avis__meta {
+  display: block;
+  margin-top: 18px;
+  font-size: 13px;
+  font-style: normal;
+  color: var(--text-soft);
+  position: relative;
+  z-index: 1;
+}
+
+.avis__meta span {
+  color: var(--blue);
 }
 
 .avis__quote {

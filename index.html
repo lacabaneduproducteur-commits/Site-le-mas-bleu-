@@ -37,6 +37,7 @@
           <a href="/cabane-du-producteur/">La Cabane du Producteur</a>
           <a href="/maison-coloniale/">La Maison Coloniale</a>
           <a href="/verger/">Le Verger de Torreilles</a>
+          <a href="https://capbea.cat/fr" target="_blank" rel="noopener">Restaurant Cap Béa</a>
         </div>
         <div class="menu-panel__group">
           <p class="menu-panel__label">Le site</p>
@@ -102,6 +103,7 @@
               <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" /></svg>
             </button>
           </div>
+          <div class="carousel__dots" id="galerie-dots"></div>
         </div>
       </section>
 
@@ -147,16 +149,16 @@
             <svg viewBox="0 0 24 24" class="star--half"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L5.8 21l1.6-7-5.4-4.7 7.1-.6z"/></svg>
           </div>
           <h2 data-reveal>4,5 sur 4 200 avis Google</h2>
-          <div class="avis__grid">
-            <blockquote class="avis__card glass" data-reveal>
-              <span class="avis__quote" aria-hidden="true">&ldquo;</span>
-              <p>Venus pour un apéro huîtres, nous n'avons pas été déçus : belle terrasse calme avec une déco sympa, prix intéressant, bon rapport qualité-prix. Nous avons adoré les huîtres, bien accompagnées d'un vin blanc.</p>
-            </blockquote>
-            <blockquote class="avis__card glass" data-reveal>
-              <span class="avis__quote" aria-hidden="true">&ldquo;</span>
-              <p>Les huîtres plus qu'excellentes, le service plus que parfait, bref nous reviendrons. Merci beaucoup pour votre professionnalisme.</p>
-            </blockquote>
+          <div class="avis__viewport">
+            <div class="avis__grid" id="avis-track"></div>
+            <button class="galerie__nav galerie__nav--prev" id="avis-prev" aria-label="Avis précédent">
+              <svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" /></svg>
+            </button>
+            <button class="galerie__nav galerie__nav--next" id="avis-next" aria-label="Avis suivant">
+              <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" /></svg>
+            </button>
           </div>
+          <div class="carousel__dots" id="avis-dots"></div>
         </div>
       </section>
 

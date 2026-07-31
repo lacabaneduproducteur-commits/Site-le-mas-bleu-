@@ -2,66 +2,32 @@ import './style.css'
 import Lenis from 'lenis'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { Carousel } from './carousel.js'
+import { GALERIE_IMAGES, AVIS_ITEMS, ROOM_SUITES, MAISON_COLONIALE_SERVICES } from './data.js'
+import { serviceIconSvg } from './icons.js'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const isTouch = window.matchMedia('(hover: none)').matches
 const TOPBAR_OFFSET = 112
 
-/* ---------- Galerie ---------- */
-/* Ajoutez une ligne ici pour chaque nouvelle photo uploadée dans public/img/galerie/ */
-const GALERIE_IMAGES = [
-  { src: '/img/galerie/coucher-soleil.jpg', alt: 'Producteur au coucher du soleil sur l\'étang de Leucate' },
-  { src: '/img/galerie/plateau-port.jpg', alt: 'Plateau de fruits de mer face au port de Leucate' },
-  { src: '/img/galerie/equipe.jpg', alt: 'L\'équipe du Mas Bleu avec un plateau de fruits de mer' },
-  { src: '/img/galerie/facade-soir.jpg', alt: 'Façade du Mas Bleu à la tombée du jour' },
-  { src: '/img/galerie/plateau-vin.jpg', alt: 'Plateau de fruits de mer et vin blanc face au port' },
-  { src: '/img/galerie/camionnette.jpg', alt: 'Ancienne camionnette Le Mas Bleu' },
-  { src: '/img/galerie/plateau-oursins.jpg', alt: 'Plateau d\'oursins et fruits de mer sur le ponton' },
-  { src: '/img/galerie/plateau-citronnier.jpg', alt: 'Plateau de fruits de mer sous le citronnier' },
-  { src: '/img/mas-bleu.jpg', alt: 'Le Mas Bleu, terrasse au bord de l\'étang' },
-  { src: '/img/cabane-du-producteur.jpg', alt: 'La Cabane du Producteur à Leucate' },
-]
-
-const galerieGrid = document.getElementById('galerie-grid')
-if (galerieGrid) {
-  galerieGrid.innerHTML = GALERIE_IMAGES.map(
-    (item, i) => `
-    <figure class="galerie__item" data-index="${i}">
-      <img src="${item.src}" alt="${item.alt}" loading="lazy" />
-    </figure>
-  `
-  ).join('')
-
-  /* Horizontal scroll: wheel support + prev/next arrows */
-  galerieGrid.addEventListener('wheel', (e) => {
-    if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-      e.preventDefault()
-      galerieGrid.scrollBy({ left: e.deltaY, behavior: 'auto' })
-    }
-  }, { passive: false })
-
-  const scrollByAmount = () => Math.min(galerieGrid.clientWidth * 0.85, 420)
-
-  document.getElementById('galerie-prev')?.addEventListener('click', () => {
-    galerieGrid.scrollBy({ left: -scrollByAmount(), behavior: 'smooth' })
-  })
-
-  document.getElementById('galerie-next')?.addEventListener('click', () => {
-    galerieGrid.scrollBy({ left: scrollByAmount(), behavior: 'smooth' })
-  })
-}
-
-/* ---------- Lightbox ---------- */
+/* ---------- Lightbox (partagée par toutes les galeries) ---------- */
 const lightbox = document.getElementById('lightbox')
 const lightboxImage = document.getElementById('lightbox-image')
+let activeLightboxSet = []
 let lightboxIndex = 0
 
-function openLightbox(index) {
-  lightboxIndex = index
-  const item = GALERIE_IMAGES[lightboxIndex]
+function updateLightboxImage() {
+  const item = activeLightboxSet[lightboxIndex]
+  if (!item) return
   lightboxImage.src = item.src
   lightboxImage.alt = item.alt
+}
+
+function openLightbox(images, index) {
+  activeLightboxSet = images
+  lightboxIndex = index
+  updateLightboxImage()
   lightbox.classList.add('is-open')
   document.body.style.overflow = 'hidden'
 }
@@ -72,17 +38,11 @@ function closeLightbox() {
 }
 
 function showLightbox(delta) {
-  lightboxIndex = (lightboxIndex + delta + GALERIE_IMAGES.length) % GALERIE_IMAGES.length
-  const item = GALERIE_IMAGES[lightboxIndex]
-  lightboxImage.src = item.src
-  lightboxImage.alt = item.alt
+  lightboxIndex = (lightboxIndex + delta + activeLightboxSet.length) % activeLightboxSet.length
+  updateLightboxImage()
 }
 
 if (lightbox) {
-  document.querySelectorAll('.galerie__item').forEach((el) => {
-    el.addEventListener('click', () => openLightbox(parseInt(el.dataset.index, 10)))
-  })
-
   document.getElementById('lightbox-close').addEventListener('click', closeLightbox)
   document.getElementById('lightbox-prev').addEventListener('click', () => showLightbox(-1))
   document.getElementById('lightbox-next').addEventListener('click', () => showLightbox(1))
@@ -97,6 +57,113 @@ if (lightbox) {
     if (e.key === 'ArrowLeft') showLightbox(-1)
     if (e.key === 'ArrowRight') showLightbox(1)
   })
+}
+
+/* ---------- Galerie générale (page d'accueil) ---------- */
+const galerieGrid = document.getElementById('galerie-grid')
+if (galerieGrid) {
+  galerieGrid.innerHTML = GALERIE_IMAGES.map(
+    (item, i) => `
+    <figure class="galerie__item" data-index="${i}">
+      <img src="${item.src}" alt="${item.alt}" loading="lazy" />
+    </figure>
+  `
+  ).join('')
+
+  new Carousel({
+    track: galerieGrid,
+    prevBtn: document.getElementById('galerie-prev'),
+    nextBtn: document.getElementById('galerie-next'),
+    dotsEl: document.getElementById('galerie-dots'),
+    autoplay: true,
+    autoplaySpeed: 0.3,
+    onItemClick: (i) => openLightbox(GALERIE_IMAGES, i),
+  })
+}
+
+/* ---------- Avis clients (carrousel) ---------- */
+const avisTrack = document.getElementById('avis-track')
+if (avisTrack) {
+  avisTrack.innerHTML = AVIS_ITEMS.map((item) => {
+    const stars = Array.from({ length: 5 }, (_, i) =>
+      `<svg viewBox="0 0 24 24" class="${i < item.rating ? '' : 'star--half'}"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L5.8 21l1.6-7-5.4-4.7 7.1-.6z"/></svg>`
+    ).join('')
+    return `
+      <blockquote class="avis__card glass" data-reveal>
+        <span class="avis__quote" aria-hidden="true">&ldquo;</span>
+        <div class="avis__card-stars">${stars}</div>
+        <p>${item.text}</p>
+        <footer class="avis__meta">${item.author} — <span>${item.source}</span></footer>
+      </blockquote>
+    `
+  }).join('')
+
+  new Carousel({
+    track: avisTrack,
+    prevBtn: document.getElementById('avis-prev'),
+    nextBtn: document.getElementById('avis-next'),
+    dotsEl: document.getElementById('avis-dots'),
+    autoplay: true,
+    autoplaySpeed: 0.25,
+  })
+}
+
+/* ---------- Chambres de la Maison Coloniale ---------- */
+const roomsContainer = document.getElementById('rooms-container')
+if (roomsContainer) {
+  roomsContainer.innerHTML = ROOM_SUITES.map(
+    (suite) => `
+    <article class="room">
+      <div class="room__header">
+        <h3>${suite.name}</h3>
+        <p>${suite.tagline}</p>
+      </div>
+      <div class="room__carousel-wrap">
+        <div class="room__track" id="room-track-${suite.id}">
+          ${suite.images
+            .map(
+              (img, i) => `
+            <figure class="room__item" data-index="${i}">
+              <img src="${img.src}" alt="${img.alt}" loading="lazy" />
+            </figure>
+          `
+            )
+            .join('')}
+        </div>
+        <button class="galerie__nav galerie__nav--prev room__nav" id="room-prev-${suite.id}" aria-label="Photo précédente">
+          <svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" /></svg>
+        </button>
+        <button class="galerie__nav galerie__nav--next room__nav" id="room-next-${suite.id}" aria-label="Photo suivante">
+          <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" /></svg>
+        </button>
+      </div>
+      <div class="carousel__dots" id="room-dots-${suite.id}"></div>
+    </article>
+  `
+  ).join('')
+
+  ROOM_SUITES.forEach((suite) => {
+    new Carousel({
+      track: document.getElementById(`room-track-${suite.id}`),
+      prevBtn: document.getElementById(`room-prev-${suite.id}`),
+      nextBtn: document.getElementById(`room-next-${suite.id}`),
+      dotsEl: document.getElementById(`room-dots-${suite.id}`),
+      onItemClick: (i) => openLightbox(suite.images, i),
+    })
+  })
+}
+
+/* ---------- Services de la Maison Coloniale ---------- */
+const servicesGrid = document.getElementById('services-grid')
+if (servicesGrid) {
+  servicesGrid.innerHTML = MAISON_COLONIALE_SERVICES.map(
+    (service) => `
+    <div class="service" data-reveal>
+      <span class="service__icon">${serviceIconSvg(service.icon)}</span>
+      <span class="service__label">${service.label}</span>
+    </div>
+  `
+  ).join('')
 }
 
 document.getElementById('year').textContent = new Date().getFullYear()
@@ -332,7 +399,7 @@ if (!isTouch) {
     dot.style.transform = `translate3d(${mouse.x}px, ${mouse.y}px, 0)`
   })
 
-  document.querySelectorAll('a, button, .card, .galerie__item').forEach((el) => {
+  document.querySelectorAll('a, button, .card, .galerie__item, .room__item, .service').forEach((el) => {
     el.addEventListener('mouseenter', () => cursor.classList.add('is-hover'))
     el.addEventListener('mouseleave', () => cursor.classList.remove('is-hover'))
   })
