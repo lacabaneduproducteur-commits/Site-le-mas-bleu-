@@ -32,6 +32,24 @@ if (galerieGrid) {
     </figure>
   `
   ).join('')
+
+  /* Horizontal scroll: wheel support + prev/next arrows */
+  galerieGrid.addEventListener('wheel', (e) => {
+    if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+      e.preventDefault()
+      galerieGrid.scrollBy({ left: e.deltaY, behavior: 'auto' })
+    }
+  }, { passive: false })
+
+  const scrollByAmount = () => Math.min(galerieGrid.clientWidth * 0.85, 420)
+
+  document.getElementById('galerie-prev')?.addEventListener('click', () => {
+    galerieGrid.scrollBy({ left: -scrollByAmount(), behavior: 'smooth' })
+  })
+
+  document.getElementById('galerie-next')?.addEventListener('click', () => {
+    galerieGrid.scrollBy({ left: scrollByAmount(), behavior: 'smooth' })
+  })
 }
 
 /* ---------- Lightbox ---------- */
@@ -204,7 +222,7 @@ gsap.to('.hero [data-reveal]', {
 if (galerieGrid) {
   gsap.to('.galerie__item', {
     opacity: 1,
-    y: 0,
+    x: 0,
     scale: 1,
     duration: 0.9,
     ease: 'power3.out',

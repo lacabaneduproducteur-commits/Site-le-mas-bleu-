@@ -93,7 +93,15 @@
         <div class="section__inner">
           <p class="eyebrow" data-reveal>En images</p>
           <h2 data-reveal>La vie sur l'étang</h2>
-          <div class="galerie__grid" id="galerie-grid"></div>
+          <div class="galerie__viewport">
+            <div class="galerie__grid" id="galerie-grid"></div>
+            <button class="galerie__nav galerie__nav--prev" id="galerie-prev" aria-label="Photos précédentes">
+              <svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" /></svg>
+            </button>
+            <button class="galerie__nav galerie__nav--next" id="galerie-next" aria-label="Photos suivantes">
+              <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" /></svg>
+            </button>
+          </div>
         </div>
       </section>
 
