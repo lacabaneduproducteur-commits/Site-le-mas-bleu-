@@ -451,8 +451,12 @@ h4 {
   margin: 18px 0 22px;
 }
 
+.hero--home .hero__content {
+  max-width: 640px;
+}
+
 .hero--home .hero__content h1 {
-  font-size: clamp(30px, 3.6vw, 48px);
+  font-size: clamp(32px, 3.8vw, 52px);
   line-height: 1.1;
 }
 
@@ -1192,6 +1196,21 @@ h4 {
 }
 
 /* ---------- Avis ---------- */
+.avis {
+  position: relative;
+}
+
+.avis::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 260px;
+  background: linear-gradient(180deg, rgba(245, 241, 232, 0) 0%, var(--navy-deep) 100%);
+  pointer-events: none;
+}
+
 .avis__stars {
   display: flex;
   gap: 6px;
@@ -1292,17 +1311,6 @@ h4 {
 .cta {
   text-align: center;
   position: relative;
-}
-
-.cta::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -1px;
-  height: 260px;
-  background: linear-gradient(180deg, rgba(245, 241, 232, 0) 0%, var(--navy-deep) 100%);
-  pointer-events: none;
 }
 
 .cta .section__inner {

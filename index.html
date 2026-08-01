@@ -42,8 +42,8 @@
         <div class="menu-panel__group">
           <p class="menu-panel__label">Le site</p>
           <a href="#galerie">Galerie</a>
-          <a href="#avis">Avis</a>
           <a href="#contact">Contact</a>
+          <a href="#avis">Avis</a>
         </div>
       </nav>
     </div>
@@ -69,7 +69,7 @@
             </svg>
             Producteurs d'huîtres — Étang de Leucate
           </p>
-          <h1 data-reveal>Découvrez nos huîtres Estramar produites sur l'étang de Leucate depuis 2 générations</h1>
+          <h1 data-reveal>Producteur d'huîtres sur l'étang de Leucate</h1>
           <p class="hero__lede" data-reveal>Une même famille entre Le Mas Bleu, La Cabane du Producteur et le verger de Torreilles.</p>
           <a href="#" class="btn btn--primary" id="hero-menu-cta" data-reveal>Découvrir nos adresses</a>
         </div>
@@ -93,7 +93,7 @@
       <section id="galerie" class="section galerie">
         <div class="section__inner">
           <p class="eyebrow" data-reveal>En images</p>
-          <h2 data-reveal>La vie sur l'étang</h2>
+          <h2 data-reveal>Notre galerie</h2>
           <div class="galerie__viewport">
             <div class="galerie__grid" id="galerie-grid"></div>
             <button class="galerie__nav galerie__nav--prev" id="galerie-prev" aria-label="Photos précédentes">
@@ -137,6 +137,19 @@
         </div>
       </section>
 
+      <!-- CTA -->
+      <section id="contact" class="section cta">
+        <div class="section__inner">
+          <p class="eyebrow" data-reveal>Nous rejoindre</p>
+          <h2 data-reveal>Envie d'huîtres, de soleil<br />et de citrons ?</h2>
+          <div class="cta__buttons" data-reveal>
+            <a href="tel:0468409233" class="btn btn--primary">Réserver au Mas Bleu</a>
+            <a href="tel:0950133207" class="btn btn--outline">Réserver à La Cabane</a>
+            <a href="https://www.booking.com/Share-NDgEWJE" class="btn btn--outline" target="_blank" rel="noopener">Réserver la Maison Coloniale</a>
+          </div>
+        </div>
+      </section>
+
       <!-- AVIS -->
       <section id="avis" class="section avis">
         <div class="section__inner">
@@ -150,7 +163,7 @@
           </div>
           <h2 data-reveal>4,5 sur 4 200 avis Google</h2>
           <div class="avis__viewport">
-            <div class="avis__grid" id="avis-track"></div>
+            <div class="avis__grid" id="avis-track" data-avis="mas-bleu"></div>
             <button class="galerie__nav galerie__nav--prev" id="avis-prev" aria-label="Avis précédent">
               <svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" /></svg>
             </button>
@@ -159,19 +172,6 @@
             </button>
           </div>
           <div class="carousel__dots" id="avis-dots"></div>
-        </div>
-      </section>
-
-      <!-- CTA -->
-      <section id="contact" class="section cta">
-        <div class="section__inner">
-          <p class="eyebrow" data-reveal>Nous rejoindre</p>
-          <h2 data-reveal>Envie d'huîtres, de soleil<br />et de citronniers ?</h2>
-          <div class="cta__buttons" data-reveal>
-            <a href="tel:0468409233" class="btn btn--primary">Réserver au Mas Bleu</a>
-            <a href="tel:0950133207" class="btn btn--outline">Réserver à La Cabane</a>
-            <a href="https://www.booking.com/Share-NDgEWJE" class="btn btn--outline" target="_blank" rel="noopener">Réserver la Maison Coloniale</a>
-          </div>
         </div>
       </section>
     </main>

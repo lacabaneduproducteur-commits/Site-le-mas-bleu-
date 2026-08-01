@@ -3,7 +3,14 @@ import Lenis from 'lenis'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Carousel } from './carousel.js'
-import { GALERIE_IMAGES, AVIS_ITEMS, ROOM_SUITES, MAISON_COLONIALE_SERVICES } from './data.js'
+import {
+  GALERIE_IMAGES,
+  AVIS_MAS_BLEU,
+  AVIS_CABANE_DU_PRODUCTEUR,
+  AVIS_MAISON_COLONIALE,
+  ROOM_SUITES,
+  MAISON_COLONIALE_SERVICES,
+} from './data.js'
 import { serviceIconSvg } from './icons.js'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -82,9 +89,18 @@ if (galerieGrid) {
 }
 
 /* ---------- Avis clients (carrousel) ---------- */
+/* Chaque page déclare data-avis="mas-bleu|cabane-du-producteur|maison-coloniale"
+   sur #avis-track pour afficher les avis qui la concernent. */
+const AVIS_MAP = {
+  'mas-bleu': AVIS_MAS_BLEU,
+  'cabane-du-producteur': AVIS_CABANE_DU_PRODUCTEUR,
+  'maison-coloniale': AVIS_MAISON_COLONIALE,
+}
+
 const avisTrack = document.getElementById('avis-track')
 if (avisTrack) {
-  avisTrack.innerHTML = AVIS_ITEMS.map((item) => {
+  const avisItems = AVIS_MAP[avisTrack.dataset.avis] || []
+  avisTrack.innerHTML = avisItems.map((item) => {
     const stars = Array.from({ length: 5 }, (_, i) =>
       `<svg viewBox="0 0 24 24" class="${i < item.rating ? '' : 'star--half'}"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8L5.8 21l1.6-7-5.4-4.7 7.1-.6z"/></svg>`
     ).join('')
