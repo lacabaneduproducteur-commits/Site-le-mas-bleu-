@@ -42,8 +42,8 @@
         <div class="menu-panel__group">
           <p class="menu-panel__label">Le site</p>
           <a href="/#galerie">Galerie</a>
-          <a href="/#avis">Avis</a>
           <a href="/#contact">Contact</a>
+          <a href="#avis">Avis</a>
         </div>
       </nav>
     </div>
@@ -128,6 +128,24 @@
               <span>Le Mas Bleu</span>
             </a>
           </div>
+        </div>
+      </section>
+
+      <!-- AVIS -->
+      <section id="avis" class="section avis">
+        <div class="section__inner">
+          <p class="eyebrow" data-reveal>Avis clients</p>
+          <h2 data-reveal>Ils nous ont fait confiance</h2>
+          <div class="avis__viewport">
+            <div class="avis__grid" id="avis-track" data-avis="mas-bleu"></div>
+            <button class="galerie__nav galerie__nav--prev" id="avis-prev" aria-label="Avis précédent">
+              <svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" /></svg>
+            </button>
+            <button class="galerie__nav galerie__nav--next" id="avis-next" aria-label="Avis suivant">
+              <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" /></svg>
+            </button>
+          </div>
+          <div class="carousel__dots" id="avis-dots"></div>
         </div>
       </section>
     </main>

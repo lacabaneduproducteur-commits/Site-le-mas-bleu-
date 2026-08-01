@@ -8,7 +8,7 @@ import {
   AVIS_MAS_BLEU,
   AVIS_CABANE_DU_PRODUCTEUR,
   AVIS_MAISON_COLONIALE,
-  ROOM_SUITES,
+  MAISON_COLONIALE_CHAMBRES,
   MAISON_COLONIALE_SERVICES,
 } from './data.js'
 import { serviceIconSvg } from './icons.js'
@@ -124,48 +124,25 @@ if (avisTrack) {
   })
 }
 
-/* ---------- Chambres de la Maison Coloniale ---------- */
-const roomsContainer = document.getElementById('rooms-container')
-if (roomsContainer) {
-  roomsContainer.innerHTML = ROOM_SUITES.map(
-    (suite) => `
-    <article class="room">
-      <div class="room__header">
-        <h3>${suite.name}</h3>
-        <p>${suite.tagline}</p>
-      </div>
-      <div class="room__carousel-wrap">
-        <div class="room__track" id="room-track-${suite.id}">
-          ${suite.images
-            .map(
-              (img, i) => `
-            <figure class="room__item" data-index="${i}">
-              <img src="${img.src}" alt="${img.alt}" loading="lazy" />
-            </figure>
-          `
-            )
-            .join('')}
-        </div>
-        <button class="galerie__nav galerie__nav--prev room__nav" id="room-prev-${suite.id}" aria-label="Photo précédente">
-          <svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" /></svg>
-        </button>
-        <button class="galerie__nav galerie__nav--next room__nav" id="room-next-${suite.id}" aria-label="Photo suivante">
-          <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" /></svg>
-        </button>
-      </div>
-      <div class="carousel__dots" id="room-dots-${suite.id}"></div>
-    </article>
+/* ---------- Chambres de la Maison Coloniale (galerie unique) ---------- */
+const chambresGrid = document.getElementById('chambres-grid')
+if (chambresGrid) {
+  chambresGrid.innerHTML = MAISON_COLONIALE_CHAMBRES.map(
+    (item, i) => `
+    <figure class="galerie__item" data-index="${i}">
+      <img src="${item.src}" alt="${item.alt}" loading="lazy" />
+    </figure>
   `
   ).join('')
 
-  ROOM_SUITES.forEach((suite) => {
-    new Carousel({
-      track: document.getElementById(`room-track-${suite.id}`),
-      prevBtn: document.getElementById(`room-prev-${suite.id}`),
-      nextBtn: document.getElementById(`room-next-${suite.id}`),
-      dotsEl: document.getElementById(`room-dots-${suite.id}`),
-      onItemClick: (i) => openLightbox(suite.images, i),
-    })
+  new Carousel({
+    track: chambresGrid,
+    prevBtn: document.getElementById('chambres-prev'),
+    nextBtn: document.getElementById('chambres-next'),
+    dotsEl: document.getElementById('chambres-dots'),
+    autoplay: true,
+    autoplaySpeed: 0.3,
+    onItemClick: (i) => openLightbox(MAISON_COLONIALE_CHAMBRES, i),
   })
 }
 
@@ -301,9 +278,9 @@ gsap.to('.hero [data-reveal]', {
   delay: 0.2,
 })
 
-/* ---------- Galerie reveal ---------- */
-if (galerieGrid) {
-  gsap.to('.galerie__item', {
+/* ---------- Galerie reveal (page d'accueil + chambres Maison Coloniale) ---------- */
+document.querySelectorAll('.galerie__grid').forEach((grid) => {
+  gsap.to(grid.querySelectorAll('.galerie__item'), {
     opacity: 1,
     x: 0,
     scale: 1,
@@ -311,12 +288,12 @@ if (galerieGrid) {
     ease: 'power3.out',
     stagger: 0.08,
     scrollTrigger: {
-      trigger: '.galerie',
+      trigger: grid.closest('.section'),
       start: 'top 75%',
       once: true,
     },
   })
-}
+})
 
 /* ---------- Footer reveal ---------- */
 gsap.to('[data-reveal-footer]', {
@@ -415,7 +392,7 @@ if (!isTouch) {
     dot.style.transform = `translate3d(${mouse.x}px, ${mouse.y}px, 0)`
   })
 
-  document.querySelectorAll('a, button, .card, .galerie__item, .room__item, .service').forEach((el) => {
+  document.querySelectorAll('a, button, .card, .galerie__item, .service').forEach((el) => {
     el.addEventListener('mouseenter', () => cursor.classList.add('is-hover'))
     el.addEventListener('mouseleave', () => cursor.classList.remove('is-hover'))
   })
