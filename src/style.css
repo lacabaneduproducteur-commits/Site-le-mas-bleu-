@@ -757,6 +757,65 @@ h4 {
   }
 }
 
+/* ---------- Notice (bandeau d'information) ---------- */
+.notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 22px 26px;
+  margin-bottom: 40px;
+  max-width: 640px;
+}
+
+.notice__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: rgba(201, 149, 0, 0.12);
+}
+
+.notice__icon svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.notice__text p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.notice__text p + p {
+  margin-top: 6px;
+  color: var(--text-soft);
+  font-weight: 400;
+}
+
+/* ---------- Marchés ---------- */
+.marches__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  margin-top: 12px;
+}
+
+@media (max-width: 800px) {
+  .marches__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .card {
   padding: 0 0 36px;
   overflow: hidden;

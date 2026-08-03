@@ -10,6 +10,7 @@ export default defineConfig({
         cabaneDuProducteur: resolve(__dirname, 'cabane-du-producteur/index.html'),
         maisonColoniale: resolve(__dirname, 'maison-coloniale/index.html'),
         verger: resolve(__dirname, 'verger/index.html'),
+        marches: resolve(__dirname, 'marches/index.html'),
       },
     },
   },
