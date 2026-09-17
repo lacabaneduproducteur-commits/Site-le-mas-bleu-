@@ -17,6 +17,10 @@ gsap.registerPlugin(ScrollTrigger)
 
 const isTouch = window.matchMedia('(hover: none)').matches
 const TOPBAR_OFFSET = 112
+const BASE_URL = import.meta.env.BASE_URL
+/* Data images are stored as root-absolute paths (e.g. "/img/foo.jpg"); prefix
+   them with BASE_URL so they resolve correctly under a subpath deployment. */
+const withBase = (path) => BASE_URL + path.replace(/^\//, '')
 
 /* ---------- Lightbox (partagée par toutes les galeries) ---------- */
 const lightbox = document.getElementById('lightbox')
@@ -27,7 +31,7 @@ let lightboxIndex = 0
 function updateLightboxImage() {
   const item = activeLightboxSet[lightboxIndex]
   if (!item) return
-  lightboxImage.src = item.src
+  lightboxImage.src = withBase(item.src)
   lightboxImage.alt = item.alt
 }
 
@@ -72,7 +76,7 @@ if (galerieGrid) {
   galerieGrid.innerHTML = GALERIE_IMAGES.map(
     (item, i) => `
     <figure class="galerie__item" data-index="${i}">
-      <img src="${item.src}" alt="${item.alt}" loading="lazy" />
+      <img src="${withBase(item.src)}" alt="${item.alt}" loading="lazy" />
     </figure>
   `
   ).join('')
@@ -130,7 +134,7 @@ if (chambresGrid) {
   chambresGrid.innerHTML = MAISON_COLONIALE_CHAMBRES.map(
     (item, i) => `
     <figure class="galerie__item" data-index="${i}">
-      <img src="${item.src}" alt="${item.alt}" loading="lazy" />
+      <img src="${withBase(item.src)}" alt="${item.alt}" loading="lazy" />
     </figure>
   `
   ).join('')
@@ -227,16 +231,17 @@ if (menuTrigger && menuPanel && menuOverlay) {
 }
 
 /* ---------- Anchor links (offset for fixed topbar) ---------- */
-/* Supports "#id" (same page) and "/#id" (links back to the homepage from a subpage) */
-const onHomepage = window.location.pathname === '/' || window.location.pathname.endsWith('/index.html')
+/* Supports "#id" (same page) and "<BASE_URL>#id" (links back to the homepage from a subpage) */
+const onHomepage = window.location.pathname === BASE_URL || window.location.pathname.endsWith('/index.html')
 
-document.querySelectorAll('a[href^="#"], a[href^="/#"]').forEach((link) => {
+document.querySelectorAll(`a[href^="#"], a[href^="${BASE_URL}#"]`).forEach((link) => {
   const href = link.getAttribute('href')
   if (href === '#') return // not a real anchor (e.g. JS-only trigger)
-  if (href.startsWith('/#') && !onHomepage) return // let the browser navigate to the homepage normally
+  const isHomeAnchor = href.startsWith(BASE_URL + '#')
+  if (isHomeAnchor && !onHomepage) return // let the browser navigate to the homepage normally
 
   link.addEventListener('click', (e) => {
-    const hash = href.startsWith('/#') ? href.slice(1) : href
+    const hash = isHomeAnchor ? href.slice(BASE_URL.length) : href
     const target = document.querySelector(hash)
     if (!target) return
     e.preventDefault()
