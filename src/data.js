@@ -121,6 +121,7 @@ export const ROOM_SUITES = [
     images: [
       { src: '/images/maison-coloniale/windsor/windsor-01.jpg', alt: 'Suite Windsor, bain balnéo et chambre attenante' },
       { src: '/images/maison-coloniale/windsor/windsor-02.jpg', alt: 'Suite Windsor, bain balnéo et douche vitrée' },
+      { src: '/images/maison-coloniale/windsor/windsor-03.jpg', alt: 'Suite Windsor, bain balnéo en ambiance tamisée et coupe de champagne' },
     ],
   },
 ]
