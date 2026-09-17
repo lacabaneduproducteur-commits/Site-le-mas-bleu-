@@ -57,5 +57,32 @@
         <circle cx="4" cy="-9" r="0.7" /><circle cx="-8" cy="10" r="0.7" />
       </g>
     </g>
+
+    <!-- Citron, style gravure (2) -->
+    <g transform="translate(44,258) rotate(-18)">
+      <path d="M0,-34 C16,-32 22,-14 22,0 C22,14 16,32 0,34 C-16,32 -22,14 -22,0 C-22,-14 -16,-32 0,-34 Z"
+        stroke-width="1.4" />
+      <!-- pointes / mamelon -->
+      <path d="M0,-34 C-2,-38 -1,-41 2,-43" stroke-width="1" />
+      <path d="M0,34 C1,37 3,39 3,41" stroke-width="1" />
+      <!-- feuille -->
+      <path d="M3,-42 C10,-44 16,-40 17,-34 C10,-35 4,-38 3,-42 Z" stroke-width="1" fill="#1c4a6e" fill-opacity="0.06" />
+      <path d="M4,-41 C8,-39 12,-37 15,-35" stroke-width="0.7" />
+
+      <!-- ombrage directionnel -->
+      <path d="M9,-26 C15,-14 16,10 8,26" stroke-width="0.7" stroke-opacity="0.4" />
+      <path d="M13,-20 C17,-8 17,6 12,20" stroke-width="0.6" stroke-opacity="0.35" />
+
+      <!-- grain de peau -->
+      <g stroke-width="0.9" stroke-opacity="0.55">
+        <circle cx="-9" cy="-22" r="0.7" /><circle cx="-14" cy="-10" r="0.7" />
+        <circle cx="-16" cy="4" r="0.7" /><circle cx="-11" cy="17" r="0.7" />
+        <circle cx="-2" cy="24" r="0.7" /><circle cx="7" cy="20" r="0.7" />
+        <circle cx="13" cy="8" r="0.7" /><circle cx="14" cy="-6" r="0.7" />
+        <circle cx="8" cy="-18" r="0.7" /><circle cx="-1" cy="-27" r="0.7" />
+        <circle cx="-5" cy="-4" r="0.7" /><circle cx="0" cy="9" r="0.7" />
+        <circle cx="4" cy="-9" r="0.7" /><circle cx="-8" cy="10" r="0.7" />
+      </g>
+    </g>
   </g>
 </svg>
