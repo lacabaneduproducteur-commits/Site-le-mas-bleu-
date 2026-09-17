@@ -1303,10 +1303,11 @@ h4 {
 .cta {
   text-align: center;
   position: relative;
-  background-image: radial-gradient(circle at 50% 15%, rgba(242, 183, 5, 0.14), transparent 62%),
-    url('/images/patterns/oyster-citrus-sun.svg');
-  background-repeat: no-repeat, repeat;
-  background-size: auto, 240px 240px;
+  background-image: linear-gradient(rgba(245, 241, 232, 0.55), rgba(245, 241, 232, 0.62)),
+    url('/images/patterns/huitres-citrons-soleil.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .cta::after {
