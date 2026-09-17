@@ -679,6 +679,13 @@ h4 {
 }
 
 /* ---------- Histoire ---------- */
+#histoire.histoire {
+  background-image: linear-gradient(rgba(245, 241, 232, 0.88), rgba(245, 241, 232, 0.88)), url('/images/histoire/famille-etang.jpg');
+  background-size: cover;
+  background-position: center 30%;
+  background-repeat: no-repeat;
+}
+
 .histoire__text {
   display: grid;
   gap: 22px;
