@@ -714,10 +714,26 @@ h4 {
 }
 
 #histoire-maison-coloniale.histoire {
-  background-image: linear-gradient(rgba(245, 241, 232, 0.78), rgba(245, 241, 232, 0.78)), url('/images/maison-coloniale/histoire-patio.jpg');
+  position: relative;
+  overflow: hidden;
+}
+
+#histoire-maison-coloniale.histoire::before {
+  content: '';
+  position: absolute;
+  inset: -20px;
+  background-image: linear-gradient(rgba(245, 241, 232, 0.68), rgba(245, 241, 232, 0.72)), url('/images/maison-coloniale/histoire-patio.jpg');
   background-size: cover;
   background-position: center 40%;
   background-repeat: no-repeat;
+  filter: blur(10px);
+  transform: scale(1.08);
+  z-index: 0;
+}
+
+#histoire-maison-coloniale.histoire > .section__inner {
+  position: relative;
+  z-index: 1;
 }
 
 .histoire__text {
