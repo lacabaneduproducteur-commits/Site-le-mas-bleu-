@@ -8,7 +8,7 @@ import {
   AVIS_MAS_BLEU,
   AVIS_CABANE_DU_PRODUCTEUR,
   AVIS_MAISON_COLONIALE,
-  MAISON_COLONIALE_CHAMBRES,
+  ROOM_SUITES,
   MAISON_COLONIALE_SERVICES,
 } from './data.js'
 import { serviceIconSvg } from './icons.js'
@@ -128,25 +128,47 @@ if (avisTrack) {
   })
 }
 
-/* ---------- Chambres de la Maison Coloniale (galerie unique) ---------- */
-const chambresGrid = document.getElementById('chambres-grid')
-if (chambresGrid) {
-  chambresGrid.innerHTML = MAISON_COLONIALE_CHAMBRES.map(
-    (item, i) => `
-    <figure class="galerie__item" data-index="${i}">
-      <img src="${withBase(item.src)}" alt="${item.alt}" loading="lazy" />
-    </figure>
+/* ---------- Chambres de la Maison Coloniale (une galerie par suite) ---------- */
+const roomsContainer = document.getElementById('rooms-container')
+if (roomsContainer) {
+  roomsContainer.innerHTML = ROOM_SUITES.map(
+    (suite) => `
+    <article class="room-suite">
+      <div class="room-suite__header">
+        <h3>${suite.name}</h3>
+        <p>${suite.tagline}</p>
+      </div>
+      <div class="galerie__viewport">
+        <div class="galerie__grid" id="room-grid-${suite.id}"></div>
+        <button class="galerie__nav galerie__nav--prev" id="room-prev-${suite.id}" aria-label="Photo précédente">
+          <svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" /></svg>
+        </button>
+        <button class="galerie__nav galerie__nav--next" id="room-next-${suite.id}" aria-label="Photo suivante">
+          <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" /></svg>
+        </button>
+      </div>
+      <div class="carousel__dots" id="room-dots-${suite.id}"></div>
+    </article>
   `
   ).join('')
 
-  new Carousel({
-    track: chambresGrid,
-    prevBtn: document.getElementById('chambres-prev'),
-    nextBtn: document.getElementById('chambres-next'),
-    dotsEl: document.getElementById('chambres-dots'),
-    autoplay: true,
-    autoplaySpeed: 0.3,
-    onItemClick: (i) => openLightbox(MAISON_COLONIALE_CHAMBRES, i),
+  ROOM_SUITES.forEach((suite) => {
+    const grid = document.getElementById(`room-grid-${suite.id}`)
+    grid.innerHTML = suite.images.map(
+      (item, i) => `
+      <figure class="galerie__item" data-index="${i}">
+        <img src="${withBase(item.src)}" alt="${item.alt}" loading="lazy" />
+      </figure>
+    `
+    ).join('')
+
+    new Carousel({
+      track: grid,
+      prevBtn: document.getElementById(`room-prev-${suite.id}`),
+      nextBtn: document.getElementById(`room-next-${suite.id}`),
+      dotsEl: document.getElementById(`room-dots-${suite.id}`),
+      onItemClick: (i) => openLightbox(suite.images, i),
+    })
   })
 }
 

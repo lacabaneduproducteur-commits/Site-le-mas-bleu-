@@ -597,6 +597,28 @@ h4 {
   }
 }
 
+/* ---------- Chambres par suite (Maison Coloniale) ---------- */
+#rooms-container {
+  display: grid;
+  gap: 64px;
+}
+
+.room-suite__header {
+  margin-bottom: 22px;
+}
+
+.room-suite__header h3 {
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+
+.room-suite__header p {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-style: italic;
+  color: var(--blue);
+}
+
 /* ---------- Services (Maison Coloniale) ---------- */
 .services-grid {
   display: grid;

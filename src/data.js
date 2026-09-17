@@ -92,16 +92,37 @@ export const AVIS_MAISON_COLONIALE = [
   },
 ]
 
-/* ---------- Chambres de la Maison Coloniale (galerie unique) ---------- */
-export const MAISON_COLONIALE_CHAMBRES = [
-  { src: '/images/maison-coloniale/windsor/windsor-01.jpg', alt: 'Chambre de la Maison Coloniale, bain balnéo en ambiance tamisée' },
-  { src: '/images/maison-coloniale/windsor/windsor-02.jpg', alt: 'Chambre de la Maison Coloniale, moment champagne dans le bain balnéo' },
-  { src: '/images/maison-coloniale/windsor/windsor-03.jpg', alt: 'Chambre de la Maison Coloniale, salle de bain et peignoirs' },
-  { src: '/images/maison-coloniale/windsor/windsor-04.jpg', alt: 'Chambre de la Maison Coloniale, bain balnéo et carrelage sombre' },
-  { src: '/images/maison-coloniale/carrington/carrington-01.jpg', alt: 'Chambre de la Maison Coloniale, chambre aux tons terracotta' },
-  { src: '/images/maison-coloniale/carrington/carrington-02.jpg', alt: 'Chambre de la Maison Coloniale, salle de bain carrelage cuivré et hammam' },
-  { src: '/images/maison-coloniale/westminster/westminster-01.jpg', alt: 'Chambre de la Maison Coloniale, salle de bain carrelage gris' },
-  { src: '/images/maison-coloniale/westminster/westminster-02.jpg', alt: 'Chambre de la Maison Coloniale, bain balnéo et chambre attenante' },
+/* ---------- Chambres de la Maison Coloniale, par suite ---------- */
+export const ROOM_SUITES = [
+  {
+    id: 'westminster',
+    name: 'Suite Westminster',
+    tagline: 'Chaleur cuivrée et bain balnéo',
+    images: [
+      { src: '/images/maison-coloniale/westminster/westminster-01.jpg', alt: 'Suite Westminster, chambre et coin salon' },
+      { src: '/images/maison-coloniale/westminster/westminster-02.jpg', alt: 'Suite Westminster, salle de bain carrelage cuivré et bain balnéo' },
+      { src: '/images/maison-coloniale/westminster/westminster-03.jpg', alt: 'Suite Westminster, vasque et miroir rond' },
+    ],
+  },
+  {
+    id: 'carrington',
+    name: 'Suite Carrington',
+    tagline: 'Tons terracotta et vue sur la terrasse',
+    images: [
+      { src: '/images/maison-coloniale/carrington/carrington-01.jpg', alt: 'Suite Carrington, chambre aux tons terracotta' },
+      { src: '/images/maison-coloniale/carrington/carrington-02.jpg', alt: 'Suite Carrington, bain balnéo rond et douche à l\'italienne' },
+      { src: '/images/maison-coloniale/carrington/carrington-03.jpg', alt: 'Suite Carrington, bain balnéo et douche vitrée' },
+    ],
+  },
+  {
+    id: 'windsor',
+    name: 'Suite Windsor',
+    tagline: 'Pierre grise et esprit voûté',
+    images: [
+      { src: '/images/maison-coloniale/windsor/windsor-01.jpg', alt: 'Suite Windsor, bain balnéo et chambre attenante' },
+      { src: '/images/maison-coloniale/windsor/windsor-02.jpg', alt: 'Suite Windsor, bain balnéo et douche vitrée' },
+    ],
+  },
 ]
 
 /* ---------- Services de la Maison Coloniale ---------- */
