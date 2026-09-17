@@ -1303,7 +1303,7 @@ h4 {
 .cta {
   text-align: center;
   position: relative;
-  background-image: linear-gradient(rgba(245, 241, 232, 0.55), rgba(245, 241, 232, 0.62)),
+  background-image: linear-gradient(rgba(245, 241, 232, 0.74), rgba(245, 241, 232, 0.8)),
     url('/images/patterns/huitres-citrons-soleil.jpg');
   background-repeat: no-repeat;
   background-size: cover;
