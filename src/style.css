@@ -713,6 +713,13 @@ h4 {
   background-repeat: no-repeat;
 }
 
+#histoire-maison-coloniale.histoire {
+  background-image: linear-gradient(rgba(245, 241, 232, 0.78), rgba(245, 241, 232, 0.78)), url('/images/maison-coloniale/histoire-patio.jpg');
+  background-size: cover;
+  background-position: center 40%;
+  background-repeat: no-repeat;
+}
+
 .histoire__text {
   display: grid;
   gap: 22px;
