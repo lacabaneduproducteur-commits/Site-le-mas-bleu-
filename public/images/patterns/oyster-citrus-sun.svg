@@ -1,66 +1,61 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300">
-  <defs>
-    <radialGradient id="sunFill" cx="35%" cy="30%" r="75%">
-      <stop offset="0%" stop-color="#f6db7d" />
-      <stop offset="100%" stop-color="#c99500" />
-    </radialGradient>
-    <linearGradient id="shellFill" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#e7c568" />
-      <stop offset="100%" stop-color="#c99500" />
-    </linearGradient>
-  </defs>
+  <g fill="none" stroke="#1c4a6e" stroke-opacity="0.4" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
 
-  <g fill-opacity="0.5" stroke="#a97b0a" stroke-opacity="0.4" stroke-width="1.3" stroke-linejoin="round">
-    <!-- Soleil -->
-    <g transform="translate(58,62)">
-      <g fill="#c99500">
-        <path d="M0,-40 C2,-48 2.4,-56 0,-66 C-2.4,-56 -2,-48 0,-40 Z" />
-        <path d="M0,-40 C2,-48 2.4,-56 0,-66 C-2.4,-56 -2,-48 0,-40 Z" transform="rotate(30)" />
-        <path d="M0,-40 C2,-48 2.4,-56 0,-66 C-2.4,-56 -2,-48 0,-40 Z" transform="rotate(60)" />
-        <path d="M0,-40 C2,-48 2.4,-56 0,-66 C-2.4,-56 -2,-48 0,-40 Z" transform="rotate(90)" />
-        <path d="M0,-40 C2,-48 2.4,-56 0,-66 C-2.4,-56 -2,-48 0,-40 Z" transform="rotate(120)" />
-        <path d="M0,-40 C2,-48 2.4,-56 0,-66 C-2.4,-56 -2,-48 0,-40 Z" transform="rotate(150)" />
-        <path d="M0,-40 C2,-48 2.4,-56 0,-66 C-2.4,-56 -2,-48 0,-40 Z" transform="rotate(180)" />
-        <path d="M0,-40 C2,-48 2.4,-56 0,-66 C-2.4,-56 -2,-48 0,-40 Z" transform="rotate(210)" />
-        <path d="M0,-40 C2,-48 2.4,-56 0,-66 C-2.4,-56 -2,-48 0,-40 Z" transform="rotate(240)" />
-        <path d="M0,-40 C2,-48 2.4,-56 0,-66 C-2.4,-56 -2,-48 0,-40 Z" transform="rotate(270)" />
-        <path d="M0,-40 C2,-48 2.4,-56 0,-66 C-2.4,-56 -2,-48 0,-40 Z" transform="rotate(300)" />
-        <path d="M0,-40 C2,-48 2.4,-56 0,-66 C-2.4,-56 -2,-48 0,-40 Z" transform="rotate(330)" />
+    <!-- Huître, style gravure -->
+    <g transform="translate(88,196) rotate(-32)">
+      <path d="M0,-54 C-10,-38 -24,-18 -30,0 Q-26,10 -20,22 Q-12,14 -6,28 Q0,18 2,32 Q8,20 14,28 Q20,14 26,20 Q30,10 30,0 C24,-18 10,-38 0,-54 Z"
+        stroke-width="1.5" />
+
+      <!-- coquille interieure (profondeur) -->
+      <path d="M0,-54 C-10,-38 -24,-18 -30,0 Q-26,10 -20,22 Q-12,14 -6,28 Q0,18 2,32 Q8,20 14,28 Q20,14 26,20 Q30,10 30,0 C24,-18 10,-38 0,-54 Z"
+        transform="scale(0.86)" stroke-width="0.9" stroke-opacity="0.3" />
+
+      <!-- nervures rayonnantes -->
+      <path d="M0,-50 C-6,-32 -14,-12 -18,20" />
+      <path d="M0,-50 C-2,-30 -5,-8 -6,25" />
+      <path d="M0,-50 C0,-28 1,-4 2,29" />
+      <path d="M0,-50 C4,-30 9,-8 13,25" />
+      <path d="M0,-50 C6,-32 16,-12 24,18" />
+
+      <!-- hachures d'ombre -->
+      <g stroke-width="0.7" stroke-opacity="0.4">
+        <path d="M-14,4 l-4,-2" /><path d="M-10,10 l-4,-1" /><path d="M-6,16 l-4,-1" />
+        <path d="M6,3 l4,-2" /><path d="M9,10 l4,-1" /><path d="M12,17 l4,0" />
+        <path d="M-2,-6 l-3,-3" /><path d="M2,-14 l-2,-3" />
       </g>
-      <circle cx="0" cy="0" r="24" fill="url(#sunFill)" stroke="#a97b0a" />
+
+      <!-- chair / ombre interieure -->
+      <path d="M-14,10 Q0,22 16,9 Q9,20 0,24 Q-9,20 -14,10 Z"
+        fill="#1c4a6e" fill-opacity="0.08" stroke-width="0.9" stroke-opacity="0.55" />
+      <path d="M-6,10 q6,6 12,0" stroke-width="0.7" stroke-opacity="0.5" />
+      <circle cx="1" cy="14" r="2.4" stroke-width="0.9" />
     </g>
 
-    <!-- Rondelle de citron -->
-    <g transform="translate(228,132)">
-      <circle cx="0" cy="0" r="24" fill="#e0ac10" stroke="#a97b0a" />
-      <circle cx="0" cy="0" r="20.5" fill="#fbf3d3" stroke="none" fill-opacity="0.8" />
-      <g fill="#f0d060" stroke="#c99500" stroke-width="0.8">
-        <path d="M0,0 L-6.5,-15.7 Q0,-19 6.5,-15.7 Z" />
-        <path d="M0,0 L-6.5,-15.7 Q0,-19 6.5,-15.7 Z" transform="rotate(45)" />
-        <path d="M0,0 L-6.5,-15.7 Q0,-19 6.5,-15.7 Z" transform="rotate(90)" />
-        <path d="M0,0 L-6.5,-15.7 Q0,-19 6.5,-15.7 Z" transform="rotate(135)" />
-        <path d="M0,0 L-6.5,-15.7 Q0,-19 6.5,-15.7 Z" transform="rotate(180)" />
-        <path d="M0,0 L-6.5,-15.7 Q0,-19 6.5,-15.7 Z" transform="rotate(225)" />
-        <path d="M0,0 L-6.5,-15.7 Q0,-19 6.5,-15.7 Z" transform="rotate(270)" />
-        <path d="M0,0 L-6.5,-15.7 Q0,-19 6.5,-15.7 Z" transform="rotate(315)" />
-      </g>
-      <circle cx="3.5" cy="-3" r="1.5" fill="#a97b0a" stroke="none" />
-      <circle cx="-4" cy="4.5" r="1.5" fill="#a97b0a" stroke="none" />
-    </g>
+    <!-- Citron, style gravure -->
+    <g transform="translate(220,92) rotate(12)">
+      <path d="M0,-34 C16,-32 22,-14 22,0 C22,14 16,32 0,34 C-16,32 -22,14 -22,0 C-22,-14 -16,-32 0,-34 Z"
+        stroke-width="1.4" />
+      <!-- pointes / mamelon -->
+      <path d="M0,-34 C-2,-38 -1,-41 2,-43" stroke-width="1" />
+      <path d="M0,34 C1,37 3,39 3,41" stroke-width="1" />
+      <!-- feuille -->
+      <path d="M3,-42 C10,-44 16,-40 17,-34 C10,-35 4,-38 3,-42 Z" stroke-width="1" fill="#1c4a6e" fill-opacity="0.06" />
+      <path d="M4,-41 C8,-39 12,-37 15,-35" stroke-width="0.7" />
 
-    <!-- Huître -->
-    <g transform="translate(112,236) rotate(-12)">
-      <path d="M2,-42 C-9,-30 -22,-14 -30,-6 Q-25,6 -18,-1 Q-12,9 -6,0 Q0,10 5,1 Q11,11 16,2 Q23,10 29,0 Q33,4 34,2 C26,-12 14,-30 2,-42 Z"
-        fill="url(#shellFill)" stroke="#8a6407" stroke-width="1.5" />
-      <g stroke="#8a6407" stroke-width="1" stroke-opacity="0.55" fill="none">
-        <path d="M2,-40 C-4,-26 -10,-10 -20,0" />
-        <path d="M2,-40 C0,-24 -2,-8 -8,4" />
-        <path d="M2,-40 C2,-22 2,-6 4,6" />
-        <path d="M2,-40 C4,-24 8,-8 16,2" />
-        <path d="M2,-40 C6,-26 14,-10 28,0" />
+      <!-- ombrage directionnel -->
+      <path d="M9,-26 C15,-14 16,10 8,26" stroke-width="0.7" stroke-opacity="0.4" />
+      <path d="M13,-20 C17,-8 17,6 12,20" stroke-width="0.6" stroke-opacity="0.35" />
+
+      <!-- grain de peau -->
+      <g stroke-width="0.9" stroke-opacity="0.55">
+        <circle cx="-9" cy="-22" r="0.7" /><circle cx="-14" cy="-10" r="0.7" />
+        <circle cx="-16" cy="4" r="0.7" /><circle cx="-11" cy="17" r="0.7" />
+        <circle cx="-2" cy="24" r="0.7" /><circle cx="7" cy="20" r="0.7" />
+        <circle cx="13" cy="8" r="0.7" /><circle cx="14" cy="-6" r="0.7" />
+        <circle cx="8" cy="-18" r="0.7" /><circle cx="-1" cy="-27" r="0.7" />
+        <circle cx="-5" cy="-4" r="0.7" /><circle cx="0" cy="9" r="0.7" />
+        <circle cx="4" cy="-9" r="0.7" /><circle cx="-8" cy="10" r="0.7" />
       </g>
-      <ellipse cx="2" cy="-4" rx="16" ry="10" fill="#fbf3d3" fill-opacity="0.75" stroke="none" />
-      <circle cx="-3" cy="-6" r="2.4" fill="#f6db7d" stroke="#a97b0a" stroke-width="0.7" />
     </g>
   </g>
 </svg>
