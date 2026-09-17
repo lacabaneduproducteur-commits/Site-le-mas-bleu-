@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 260" width="260" height="260">
+  <g fill="none" stroke="#c99500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.4">
+    <!-- Soleil -->
+    <g transform="translate(46,50)">
+      <circle cx="0" cy="0" r="15" />
+      <line x1="0" y1="-26" x2="0" y2="-34" />
+      <line x1="0" y1="26" x2="0" y2="34" />
+      <line x1="-26" y1="0" x2="-34" y2="0" />
+      <line x1="26" y1="0" x2="34" y2="0" />
+      <line x1="-18.5" y1="-18.5" x2="-24" y2="-24" />
+      <line x1="18.5" y1="-18.5" x2="24" y2="-24" />
+      <line x1="-18.5" y1="18.5" x2="-24" y2="24" />
+      <line x1="18.5" y1="18.5" x2="24" y2="24" />
+    </g>
+
+    <!-- Rondelle de citron -->
+    <g transform="translate(196,108)">
+      <circle cx="0" cy="0" r="24" />
+      <circle cx="0" cy="0" r="17" />
+      <line x1="0" y1="-17" x2="0" y2="17" />
+      <line x1="-14.7" y1="-8.5" x2="14.7" y2="8.5" />
+      <line x1="-14.7" y1="8.5" x2="14.7" y2="-8.5" />
+      <line x1="-8.5" y1="-14.7" x2="8.5" y2="14.7" />
+      <line x1="-8.5" y1="14.7" x2="8.5" y2="-14.7" />
+      <line x1="-17" y1="0" x2="17" y2="0" />
+    </g>
+
+    <!-- Huître -->
+    <g transform="translate(96,205) rotate(-8)">
+      <path d="M0 -26C-14 -20 -22 -6 -22 6c0 10 11 16 22 16s22 -6 22 -16c0 -12 -8 -26 -22 -32z" />
+      <path d="M-9 -2c4 3 6 3 9 0" />
+      <path d="M9 -2c-4 3 -6 3 -9 0" />
+      <circle cx="0" cy="4" r="2.4" fill="#c99500" stroke="none" stroke-opacity="1" fill-opacity="0.5" />
+    </g>
+  </g>
+</svg>

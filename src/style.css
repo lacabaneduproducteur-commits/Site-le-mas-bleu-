@@ -1303,6 +1303,10 @@ h4 {
 .cta {
   text-align: center;
   position: relative;
+  background-image: radial-gradient(circle at 50% 15%, rgba(242, 183, 5, 0.14), transparent 62%),
+    url('/images/patterns/oyster-citrus-sun.svg');
+  background-repeat: no-repeat, repeat;
+  background-size: auto, 220px 220px;
 }
 
 .cta::after {
@@ -1317,6 +1321,8 @@ h4 {
 }
 
 .cta .section__inner {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
