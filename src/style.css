@@ -459,6 +459,19 @@ h4 {
   padding: 0 clamp(24px, 6vw, 96px);
 }
 
+/* Tache blanche floue derrière le texte du hero vidéo, pour le faire
+   ressortir sans retoucher la vidéo elle-même. */
+.hero--home .hero__content::before {
+  content: '';
+  position: absolute;
+  inset: -32px -28px;
+  background: rgba(255, 255, 255, 0.88);
+  border-radius: 28px;
+  box-shadow: 0 0 70px 45px rgba(255, 255, 255, 0.45);
+  z-index: -1;
+  pointer-events: none;
+}
+
 .hero__content h1 {
   font-size: clamp(42px, 6.4vw, 78px);
   line-height: 0.98;
