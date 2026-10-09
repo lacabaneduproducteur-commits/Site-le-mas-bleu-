@@ -357,6 +357,20 @@ h4 {
   pointer-events: none;
 }
 
+/* La vidéo du hero est au format 16:9 ; sur un écran vertical le cover
+   recadre énormément. On retire le zoom du parallax (inactif sur tactile)
+   et on recentre sur l'enseigne plutôt que de garder le cadrage "droite"
+   pensé pour le desktop. */
+@media (hover: none) and (pointer: coarse) {
+  .hero--home .hero__bg {
+    inset: 0;
+  }
+
+  .hero--home .hero__bg-video {
+    object-position: 30% center;
+  }
+}
+
 .hero__bg-image {
   position: absolute;
   inset: 0;
