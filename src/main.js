@@ -70,6 +70,25 @@ if (lightbox) {
   })
 }
 
+/* ---------- Vidéo de fond du hero : relance si l'autoplay est bloqué ---------- */
+const heroVideo = document.querySelector('.hero__bg-video')
+if (heroVideo) {
+  const tryPlay = () => heroVideo.play().catch(() => {})
+  tryPlay()
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) tryPlay()
+  })
+  const resumeOnInteraction = () => {
+    tryPlay()
+    window.removeEventListener('touchstart', resumeOnInteraction)
+    window.removeEventListener('scroll', resumeOnInteraction)
+    window.removeEventListener('click', resumeOnInteraction)
+  }
+  window.addEventListener('touchstart', resumeOnInteraction, { passive: true })
+  window.addEventListener('scroll', resumeOnInteraction, { passive: true })
+  window.addEventListener('click', resumeOnInteraction)
+}
+
 /* ---------- Galerie générale (page d'accueil) ---------- */
 const galerieGrid = document.getElementById('galerie-grid')
 if (galerieGrid) {
