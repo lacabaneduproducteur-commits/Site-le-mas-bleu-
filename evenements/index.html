@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nos événements — Le Mas Bleu</title>
+    <meta name="description" content="Organisez votre événement avec la famille du Mas Bleu, producteurs d'huîtres à l'étang de Leucate." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="grain"></div>
+    <div id="cursor"></div>
+    <div id="cursor-dot"></div>
+
+    <header class="topbar">
+      <span class="topbar__spacer" aria-hidden="true"></span>
+      <a href="%BASE_URL%" class="topbar__brand">
+        <img src="/img/logo-mas-bleu.png" alt="Le Mas Bleu — Huîtres, Estramar Leucate" />
+      </a>
+      <button class="menu-trigger" id="menu-trigger" aria-expanded="false" aria-controls="menu-panel" aria-label="Ouvrir le menu">
+        <span class="menu-icon">
+          <span class="menu-icon__line menu-icon__line--top"></span>
+          <span class="menu-icon__line menu-icon__line--mid"></span>
+          <span class="menu-icon__line menu-icon__line--bot"></span>
+        </span>
+      </button>
+    </header>
+
+    <div class="menu-panel" id="menu-panel">
+      <nav class="menu-panel__nav">
+        <div class="menu-panel__group">
+          <p class="menu-panel__label">Nos adresses</p>
+          <a href="%BASE_URL%mas-bleu/">Le Mas Bleu</a>
+          <a href="%BASE_URL%cabane-du-producteur/">La Cabane du Producteur</a>
+          <a href="%BASE_URL%maison-coloniale/">La Maison Coloniale</a>
+          <a href="%BASE_URL%verger/">Le Verger de Torreilles</a>
+          <a href="%BASE_URL%marches/">Nos marchés</a>
+          <a href="%BASE_URL%evenements/">Nos événements</a>
+          <a href="https://capbea.cat/fr" target="_blank" rel="noopener">Restaurant Cap Béa</a>
+        </div>
+        <div class="menu-panel__group">
+          <p class="menu-panel__label">Le site</p>
+          <a href="%BASE_URL%#galerie">Galerie</a>
+          <a href="%BASE_URL%#contact">Contact</a>
+          <a href="%BASE_URL%maison-coloniale/#avis">Avis</a>
+        </div>
+      </nav>
+    </div>
+    <div class="menu-overlay" id="menu-overlay"></div>
+
+    <main>
+      <!-- HERO -->
+      <section id="hero" class="hero hero--home">
+        <div class="hero__content">
+          <p class="eyebrow eyebrow--icon" data-reveal>
+            <svg class="deco-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="8.5" />
+              <line x1="12" y1="4" x2="12" y2="20" />
+              <line x1="4" y1="12" x2="20" y2="12" />
+            </svg>
+            Page en préparation
+          </p>
+          <h1 data-reveal>Nos événements</h1>
+          <p class="hero__lede" data-reveal>
+            Cette page est encore vide : décrivez-nous les événements que vous accueillez (anniversaires, repas de
+            groupe, soirées dégustation, séminaires...) et nous l'habillerons ensemble avec vos textes et vos photos.
+          </p>
+          <a href="#evenements-contact" class="btn btn--primary" data-reveal>Nous contacter</a>
+        </div>
+      </section>
+
+      <!-- SECTION À COMPLÉTER -->
+      <section class="section histoire">
+        <div class="section__inner">
+          <p class="eyebrow" data-reveal>À compléter</p>
+          <h2 data-reveal>Décrivez ici vos événements</h2>
+          <div class="histoire__text" data-reveal>
+            <p>
+              Ajoutez ici une présentation de vos événements : le type de prestations proposées, la capacité
+              d'accueil, le déroulé habituel, ou encore des exemples d'événements déjà organisés.
+            </p>
+            <p>Dès que vous m'envoyez le texte et les photos, je les intègre directement sur cette page.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="evenements-contact" class="section contact-page">
+        <div class="section__inner">
+          <p class="eyebrow" data-reveal>Organiser un événement</p>
+          <h2 data-reveal>Parlons de votre projet</h2>
+
+          <div class="contact-card glass" data-reveal>
+            <a class="contact-row" href="tel:0468409233">
+              <span class="contact-row__icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.5 21 3 13.5 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg>
+              </span>
+              <span>04 68 40 92 33</span>
+            </a>
+
+            <a class="contact-row" href="mailto:masbleuleucate@orange.fr">
+              <span class="contact-row__icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
+              </span>
+              <span>masbleuleucate@orange.fr</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" id="footer">
+      <div class="footer__inner">
+        <div class="footer__brand" data-reveal-footer>
+          <h3>Le Mas Bleu</h3>
+          <p>Producteurs d'huîtres depuis plusieurs générations, étang de Leucate.</p>
+        </div>
+        <div class="footer__col" data-reveal-footer>
+          <h4>Le Mas Bleu</h4>
+          <a href="https://www.google.com/maps/search/?api=1&query=Le+Mas+Bleu+37+Grau+de+Leucate+rive+droite+11370+Leucate" target="_blank" rel="noopener">37 Grau de Leucate, rive droite, 11370 Leucate</a>
+          <a href="tel:0468409233">04 68 40 92 33</a>
+          <a href="mailto:masbleuleucate@orange.fr">masbleuleucate@orange.fr</a>
+        </div>
+        <div class="footer__col" data-reveal-footer>
+          <h4>La Cabane du Producteur</h4>
+          <a href="https://www.google.com/maps/search/?api=1&query=La+Cabane+du+Producteur+13+Grau+de+Leucate+rive+gauche+11370+Leucate" target="_blank" rel="noopener">13 Grau de Leucate, rive gauche, 11370 Leucate</a>
+          <a href="tel:0950133207">09 50 13 32 07</a>
+        </div>
+        <div class="footer__col" data-reveal-footer>
+          <h4>La Maison Coloniale</h4>
+          <a href="https://www.google.com/maps/search/?api=1&query=La+Maison+Coloniale+10+Rue+des+Acacias+66440+Torreilles" target="_blank" rel="noopener">10 Rue des Acacias, 66440 Torreilles</a>
+          <a href="https://www.booking.com/Share-NDgEWJE" target="_blank" rel="noopener">Réserver</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© <span id="year"></span> Le Mas Bleu — Tous droits réservés</span>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

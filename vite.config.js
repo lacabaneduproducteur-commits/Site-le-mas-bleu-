@@ -11,6 +11,7 @@ export default defineConfig({
         maisonColoniale: resolve(__dirname, 'maison-coloniale/index.html'),
         verger: resolve(__dirname, 'verger/index.html'),
         marches: resolve(__dirname, 'marches/index.html'),
+        evenements: resolve(__dirname, 'evenements/index.html'),
       },
     },
   },
