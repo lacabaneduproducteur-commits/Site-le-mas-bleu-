@@ -1,3 +1,4 @@
+import { asset } from '../../lib/asset'
 import { AnimatePresence, motion } from 'motion/react'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { categories, placeholderSlots, projects, type Project, type ProjectCategory } from '../../content/projects'
@@ -131,7 +132,7 @@ function ProjectTile({ project, ratio, onOpen }: { project: Project; ratio: stri
     >
       {cover && (
         <img
-          src={cover.src}
+          src={asset(cover.src)}
           alt={cover.alt}
           loading="lazy"
           decoding="async"
@@ -215,7 +216,7 @@ function Lightbox({ project, onClose }: { project: Project | null; onClose: () =
               <AnimatePresence mode="wait">
                 <motion.img
                   key={project.photos[index]?.src}
-                  src={project.photos[index]?.src}
+                  src={asset(project.photos[index]?.src ?? '')}
                   alt={project.photos[index]?.alt}
                   className="max-h-[72vh] w-full rounded-2xl object-contain"
                   initial={{ opacity: 0, scale: 0.98 }}

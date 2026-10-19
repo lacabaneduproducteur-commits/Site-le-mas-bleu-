@@ -1,3 +1,4 @@
+import { asset } from '../lib/asset'
 import { motion, useReducedMotion, useScroll, useTransform } from 'motion/react'
 import { useRef } from 'react'
 import { company } from '../content/site'
@@ -33,7 +34,7 @@ export function Hero() {
       <motion.div aria-hidden="true" className="absolute inset-0 -z-10" style={{ y: bgY }}>
         {media.hero ? (
           <>
-            <img src={media.hero.src} alt="" className="h-full w-full scale-110 object-cover" fetchPriority="high" />
+            <img src={asset(media.hero.src)} alt="" className="h-full w-full scale-110 object-cover" fetchPriority="high" />
             <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-ink/30" />
           </>
         ) : (

@@ -1,3 +1,4 @@
+import { asset } from '../../lib/asset'
 import { motion, useScroll, useTransform } from 'motion/react'
 import { useRef } from 'react'
 import { company } from '../../content/site'
@@ -19,7 +20,7 @@ export function Heiwa() {
             <div className="bg-blueprint absolute inset-0" aria-hidden="true" />
             <motion.div className="absolute inset-0 grid place-items-center" style={{ y }}>
               {media.heiwa ? (
-                <img src={media.heiwa.src} alt={media.heiwa.alt} loading="lazy" className="h-[116%] w-full object-cover" />
+                <img src={asset(media.heiwa.src)} alt={media.heiwa.alt} loading="lazy" className="h-[116%] w-full object-cover" />
               ) : (
                 <OutdoorUnitIllustration className="w-[72%] drop-shadow-[0_30px_60px_rgba(57,123,255,0.25)]" />
               )}

@@ -1,3 +1,4 @@
+import { asset } from '../../lib/asset'
 import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from 'motion/react'
 import { Link } from 'react-router-dom'
 import { company, expertises, type Expertise } from '../../content/site'
@@ -96,7 +97,7 @@ function ExpertiseCard({ e, className = '', tall = false }: { e: Expertise; clas
           <motion.div className="absolute inset-0 grid place-items-center" style={{ x: tx, y: ty }}>
             {photo ? (
               <img
-                src={photo.src}
+                src={asset(photo.src)}
                 alt={photo.alt}
                 loading="lazy"
                 decoding="async"

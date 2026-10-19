@@ -1,3 +1,4 @@
+import { asset } from '../../lib/asset'
 import { motion } from 'motion/react'
 import { commitments, company } from '../../content/site'
 import { media } from '../../content/media'
@@ -42,7 +43,7 @@ export function Company({ withLink = true }: { withLink?: boolean }) {
               <div className="mt-10 flex items-center gap-5 border-t border-ink/10 pt-6">
                 {media.entreprise ? (
                   <img
-                    src={media.entreprise.src}
+                    src={asset(media.entreprise.src)}
                     alt={media.entreprise.alt}
                     loading="lazy"
                     className="h-16 w-16 rounded-full object-cover"

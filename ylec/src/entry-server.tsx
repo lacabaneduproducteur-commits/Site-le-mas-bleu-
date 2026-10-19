@@ -5,11 +5,12 @@ import { App } from './App'
 import { headTags, routes } from './content/seo'
 
 export const paths = Object.keys(routes)
+const base = import.meta.env.BASE_URL.replace(/\/$/, '')
 
 export function render(url: string) {
   const html = renderToString(
     <StrictMode>
-      <StaticRouter location={url}>
+      <StaticRouter location={base + url} basename={base}>
         <App />
       </StaticRouter>
     </StrictMode>,

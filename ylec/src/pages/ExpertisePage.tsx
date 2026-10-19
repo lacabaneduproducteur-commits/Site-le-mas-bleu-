@@ -1,3 +1,4 @@
+import { asset } from '../lib/asset'
 import { motion } from 'motion/react'
 import { Link } from 'react-router-dom'
 import { Button, PhoneIcon } from '../components/Button'
@@ -80,7 +81,7 @@ export function ExpertisePage({ slug }: { slug: 'electricite' | 'climatisation' 
                 <div className="bg-blueprint absolute inset-0" aria-hidden="true" />
                 <div className="group absolute inset-0 grid place-items-center">
                   {photo ? (
-                    <img src={photo.src} alt={photo.alt} loading="lazy" className="h-full w-full object-cover" />
+                    <img src={asset(photo.src)} alt={photo.alt} loading="lazy" className="h-full w-full object-cover" />
                   ) : slug === 'electricite' ? (
                     <PanelIllustration className="w-[80%]" />
                   ) : (
