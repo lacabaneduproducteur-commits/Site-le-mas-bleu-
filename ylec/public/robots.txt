@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://ylec-clim.fr/sitemap.xml
